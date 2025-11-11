@@ -487,4 +487,34 @@ img {
     .text-dark {
         color: #f8f9fa !important;
     }
+    
+    /* Override bg-light cards in dark mode */
+    .bg-light {
+        background-color: #1a1d20 !important;
+    }
+    
+    .bg-light .card {
+        background-color: #1a1d20 !important;
+    }
+    
+    /* Small text visibility */
+    .small,
+    small {
+        color: #f8f9fa !important;
+    }
+    
+    /* Font weight text */
+    .fw-bold,
+    .fw-semibold {
+        color: #ffffff !important;
+    }
+    
+    /* Section backgrounds */
+    section {
+        background-color: inherit;
+    }
+    
+    section.bg-light {
+        background-color: #212529 !important;
+    }
 }
