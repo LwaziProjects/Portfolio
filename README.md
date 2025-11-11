@@ -139,7 +139,7 @@ To receive email notifications when someone submits the contact form:
 **Manual Setup:**
 1. See detailed instructions in `EMAIL_SETUP.md`
 2. Create `.env` file with your Gmail App Password
-3. Test with: `python test_email.py`
+3. Configure email settings in Django admin
 
 ### Step 9: Run the Development Server
 

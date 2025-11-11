@@ -32,16 +32,8 @@ if ($appPassword) {
     
     Write-Host "STEP 2: Test Email Configuration" -ForegroundColor Yellow
     Write-Host "----------------------------------------" -ForegroundColor Yellow
-    $test = Read-Host "Would you like to send a test email now? (y/n)"
-    
-    if ($test -eq 'y' -or $test -eq 'Y') {
-        Write-Host "`nSending test email..." -ForegroundColor White
-        Set-Location "c:\Users\0174988\Documents\usefulstuff\MyResume\portfolio_website"
-        C:/Users/0174988/Documents/usefulstuff/MyResume/.venv/Scripts/python.exe test_email.py
-    } else {
-        Write-Host "`nYou can test email later by running:" -ForegroundColor White
-        Write-Host "  python test_email.py`n" -ForegroundColor Gray
-    }
+    Write-Host "`nEmail configuration complete!" -ForegroundColor Green
+    Write-Host "Test your email by using the contact form on your website." -ForegroundColor White
     
 } else {
     Write-Host "`n⚠️  Setup skipped. Create .env file manually:" -ForegroundColor Yellow
