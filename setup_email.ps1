@@ -24,7 +24,7 @@ if ($appPassword) {
     $appPassword = $appPassword -replace '\s', ''
     
     # Create .env file
-    $envPath = "c:\Users\0174988\Documents\usefulstuff\MyResume\portfolio_website\.env"
+    $envPath = ""
     Set-Content -Path $envPath -Value "EMAIL_HOST_PASSWORD=$appPassword"
     
     Write-Host "`n✅ .env file created successfully!" -ForegroundColor Green
