@@ -8,7 +8,14 @@ from datetime import datetime
 from reportlab.lib.pagesizes import letter, A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+from reportlab.platypus import (
+    SimpleDocTemplate,
+    Paragraph,
+    Spacer,
+    Table,
+    TableStyle,
+    PageBreak,
+)
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_JUSTIFY
 from io import BytesIO
@@ -16,20 +23,14 @@ from io import BytesIO
 
 def home(request):
     """Home page view"""
-    context = {
-        'page_title': 'Home',
-        'active_page': 'home'
-    }
-    return render(request, 'main/home.html', context)
+    context = {"page_title": "Home", "active_page": "home"}
+    return render(request, "main/home.html", context)
 
 
 def about(request):
     """About page view"""
-    context = {
-        'page_title': 'About',
-        'active_page': 'about'
-    }
-    return render(request, 'main/about.html', context)
+    context = {"page_title": "About", "active_page": "about"}
+    return render(request, "main/about.html", context)
 
 
 def experience(request):
@@ -37,10 +38,12 @@ def experience(request):
     # Calculate duration for current Transnet position
     start_date = datetime(2025, 4, 1)  # April 2025
     current_date = datetime.now()
-    
+
     # Calculate months difference
-    months_diff = (current_date.year - start_date.year) * 12 + (current_date.month - start_date.month)
-    
+    months_diff = (current_date.year - start_date.year) * 12 + (
+        current_date.month - start_date.month
+    )
+
     # Format duration string
     if months_diff < 1:
         duration_text = "Less than 1 month"
@@ -48,64 +51,58 @@ def experience(request):
         duration_text = "1 month"
     else:
         duration_text = f"{months_diff} months"
-    
+
     context = {
-        'page_title': 'Experience',
-        'active_page': 'experience',
-        'current_position_duration': duration_text
+        "page_title": "Experience",
+        "active_page": "experience",
+        "current_position_duration": duration_text,
     }
-    return render(request, 'main/experience.html', context)
+    return render(request, "main/experience.html", context)
 
 
 def projects(request):
     """Projects page view"""
-    context = {
-        'page_title': 'Projects',
-        'active_page': 'projects'
-    }
-    return render(request, 'main/projects.html', context)
+    context = {"page_title": "Projects", "active_page": "projects"}
+    return render(request, "main/projects.html", context)
 
 
 def qualifications(request):
     """Qualifications page view"""
-    context = {
-        'page_title': 'Qualifications',
-        'active_page': 'qualifications'
-    }
-    return render(request, 'main/qualifications.html', context)
+    context = {"page_title": "Qualifications", "active_page": "qualifications"}
+    return render(request, "main/qualifications.html", context)
 
 
 def contact(request):
     """Contact page view with form handling"""
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
             # Save the contact message
             contact_message = form.save()
-            
+
             # NOTE: Email sending is disabled on PythonAnywhere free tier
             # PythonAnywhere free accounts block Gmail SMTP for security reasons.
             # To enable email notifications, upgrade to paid account or use SendGrid/Mailgun.
             # See PYTHONANYWHERE_EMAIL_FIX.md for detailed setup instructions.
-            
+
             # Email notification code (DISABLED)
             # try:
             #     subject = f"New Contact Form Submission: {contact_message.subject}"
             #     message = f"""
             # You have received a new message from your portfolio website!
-            # 
+            #
             # From: {contact_message.name}
             # Email: {contact_message.email}
             # Phone: {contact_message.phone or 'Not provided'}
             # Subject: {contact_message.subject}
-            # 
+            #
             # Message:
             # {contact_message.message}
-            # 
+            #
             # ---
             # Submitted on: {contact_message.created_at.strftime('%B %d, %Y at %I:%M %p')}
             # """
-            #     
+            #
             #     send_mail(
             #         subject=subject,
             #         message=message,
@@ -115,112 +112,122 @@ def contact(request):
             #     )
             # except Exception as e:
             #     print(f"Email sending failed: {str(e)}")
-            
-            messages.success(request, 'Thank you for your message! Your submission has been saved and I will review it in the admin panel.')
-            
-            return redirect('contact')
+
+            messages.success(
+                request,
+                "Thank you for your message! Your submission has been saved and I will review it in the admin panel.",
+            )
+
+            return redirect("contact")
         else:
-            messages.error(request, 'Please correct the errors below.')
+            messages.error(request, "Please correct the errors below.")
     else:
         form = ContactForm()
-    
-    context = {
-        'page_title': 'Contact',
-        'active_page': 'contact',
-        'form': form
-    }
-    return render(request, 'main/contact.html', context)
+
+    context = {"page_title": "Contact", "active_page": "contact", "form": form}
+    return render(request, "main/contact.html", context)
 
 
 def download_resume(request):
     """Generate and download resume as PDF"""
     # Create a buffer to receive PDF data
     buffer = BytesIO()
-    
+
     # Create the PDF object using the buffer as its "file"
     doc = SimpleDocTemplate(
-        buffer, 
-        pagesize=A4, 
-        topMargin=0.5*inch, 
-        bottomMargin=0.5*inch,
+        buffer,
+        pagesize=A4,
+        topMargin=0.5 * inch,
+        bottomMargin=0.5 * inch,
         title="Lwazi Knowledge Gumede - Resume",
         author="Lwazi Knowledge Gumede",
-        subject="Professional Resume - ECSA Candidate Engineer"
+        subject="Professional Resume - ECSA Candidate Engineer",
     )
-    
+
     # Container for the 'Flowable' objects
     elements = []
-    
+
     # Define styles
     styles = getSampleStyleSheet()
-    
+
     # Custom styles
     title_style = ParagraphStyle(
-        'CustomTitle',
-        parent=styles['Heading1'],
+        "CustomTitle",
+        parent=styles["Heading1"],
         fontSize=24,
-        textColor=colors.HexColor('#0d6efd'),
+        textColor=colors.HexColor("#0d6efd"),
         spaceAfter=6,
         alignment=TA_CENTER,
-        fontName='Helvetica-Bold'
+        fontName="Helvetica-Bold",
     )
-    
+
     subtitle_style = ParagraphStyle(
-        'CustomSubtitle',
-        parent=styles['Normal'],
+        "CustomSubtitle",
+        parent=styles["Normal"],
         fontSize=12,
         textColor=colors.grey,
         spaceAfter=12,
-        alignment=TA_CENTER
+        alignment=TA_CENTER,
     )
-    
+
     heading_style = ParagraphStyle(
-        'CustomHeading',
-        parent=styles['Heading2'],
+        "CustomHeading",
+        parent=styles["Heading2"],
         fontSize=14,
-        textColor=colors.HexColor('#0d6efd'),
+        textColor=colors.HexColor("#0d6efd"),
         spaceAfter=10,
         spaceBefore=12,
-        fontName='Helvetica-Bold'
+        fontName="Helvetica-Bold",
     )
-    
+
     body_style = ParagraphStyle(
-        'CustomBody',
-        parent=styles['Normal'],
+        "CustomBody",
+        parent=styles["Normal"],
         fontSize=10,
         spaceAfter=6,
-        alignment=TA_JUSTIFY
+        alignment=TA_JUSTIFY,
     )
-    
+
     # Compact style for references (reduced line spacing)
     reference_style = ParagraphStyle(
-        'ReferenceStyle',
-        parent=styles['Normal'],
+        "ReferenceStyle",
+        parent=styles["Normal"],
         fontSize=10,
         spaceAfter=0,
         alignment=TA_LEFT,
-        leading=12  # Reduced line spacing (default is usually 12-14)
+        leading=12,  # Reduced line spacing (default is usually 12-14)
     )
-    
+
     # Header
     elements.append(Paragraph("LWAZI KNOWLEDGE GUMEDE", title_style))
-    elements.append(Paragraph("ECSA Candidate Engineer | BSc (Honours) Computer Engineering", subtitle_style))
-    
+    elements.append(
+        Paragraph(
+            "ECSA Candidate Engineer | BSc (Honours) Computer Engineering",
+            subtitle_style,
+        )
+    )
+
     # Contact Information
     contact_info = [
         ["Email:", "lwazig28@gmail.com", "Phone:", "+27 76 935 2103"],
-        ["Location:", "Johannesburg, South Africa", "Phone:", "+27 65 711 1226"]
+        ["Location:", "Johannesburg, South Africa", "Phone:", "+27 65 711 1226"],
     ]
-    contact_table = Table(contact_info, colWidths=[1*inch, 2.2*inch, 1*inch, 1.5*inch])
-    contact_table.setStyle(TableStyle([
-        ('FONTSIZE', (0, 0), (-1, -1), 9),
-        ('TEXTCOLOR', (0, 0), (0, -1), colors.grey),
-        ('TEXTCOLOR', (2, 0), (2, -1), colors.grey),
-        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-    ]))
+    contact_table = Table(
+        contact_info, colWidths=[1 * inch, 2.2 * inch, 1 * inch, 1.5 * inch]
+    )
+    contact_table.setStyle(
+        TableStyle(
+            [
+                ("FONTSIZE", (0, 0), (-1, -1), 9),
+                ("TEXTCOLOR", (0, 0), (0, -1), colors.grey),
+                ("TEXTCOLOR", (2, 0), (2, -1), colors.grey),
+                ("ALIGN", (0, 0), (-1, -1), "LEFT"),
+            ]
+        )
+    )
     elements.append(contact_table)
-    elements.append(Spacer(1, 0.2*inch))
-    
+    elements.append(Spacer(1, 0.2 * inch))
+
     # Professional Summary
     elements.append(Paragraph("PROFESSIONAL SUMMARY", heading_style))
     summary_text = """Results-driven ECSA Candidate Engineer with a BSc (Honours) in Computer Engineering, 
@@ -228,8 +235,8 @@ def download_resume(request):
     C++, Java, JavaScript, and modern frameworks including React, Django, and Flask. Experienced in developing 
     innovative solutions for rail transport systems, with expertise in IoT, blockchain technology, and embedded systems."""
     elements.append(Paragraph(summary_text, body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Technical Skills
     elements.append(Paragraph("TECHNICAL SKILLS", heading_style))
     tech_skills = """
@@ -241,8 +248,8 @@ def download_resume(request):
     <b>Specialized Skills:</b> IoT Systems, Blockchain Development, Embedded Systems, System Automation, Microcontroller Programming
     """
     elements.append(Paragraph(tech_skills, body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Soft Skills
     elements.append(Paragraph("CORE COMPETENCIES", heading_style))
     soft_skills = """
@@ -254,24 +261,31 @@ def download_resume(request):
     <b>Attention to Detail:</b> Meticulous approach to code quality, testing, and documentation
     """
     elements.append(Paragraph(soft_skills, body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Professional Experience
     elements.append(Paragraph("PROFESSIONAL EXPERIENCE", heading_style))
-    
+
     # Calculate duration for Transnet position
     start_date = datetime(2025, 4, 1)
     current_date = datetime.now()
-    months_diff = (current_date.year - start_date.year) * 12 + (current_date.month - start_date.month)
+    months_diff = (current_date.year - start_date.year) * 12 + (
+        current_date.month - start_date.month
+    )
     if months_diff < 1:
         duration_text = "Less than 1 month"
     elif months_diff == 1:
         duration_text = "1 month"
     else:
         duration_text = f"{months_diff} months"
-    
+
     elements.append(Paragraph("<b>Engineer-in-Training</b>", body_style))
-    elements.append(Paragraph("Transnet SOC Ltd | April 2025 - Present ({})".format(duration_text), body_style))
+    elements.append(
+        Paragraph(
+            "Transnet SOC Ltd | April 2025 - Present ({})".format(duration_text),
+            body_style,
+        )
+    )
     transnet_duties = """
     • Developed Rail Monitor Dashboard for real-time train tracking and operational efficiency<br/>
     • Created Trunking Highsite Dashboard for communication systems monitoring<br/>
@@ -281,8 +295,8 @@ def download_resume(request):
     • Developed Train Movement Segmenting tool for route optimization and efficiency
     """
     elements.append(Paragraph(transnet_duties, body_style))
-    elements.append(Spacer(1, 0.1*inch))
-    
+    elements.append(Spacer(1, 0.1 * inch))
+
     # Academic Experience
     elements.append(Paragraph("<b>Teaching & Demonstration Roles</b>", body_style))
     elements.append(Paragraph("University of KwaZulu-Natal | 2024 - 2025", body_style))
@@ -303,22 +317,26 @@ def download_resume(request):
     • Supervised laboratory sessions ensuring student safety and proper equipment use
     """
     elements.append(Paragraph(teaching_duties, body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Education
     elements.append(Paragraph("EDUCATION", heading_style))
     elements.append(Paragraph("<b>BSc (Honours) Computer Engineering</b>", body_style))
     elements.append(Paragraph("University of KwaZulu-Natal| 2022 - 2023", body_style))
-    elements.append(Spacer(1, 0.05*inch))
-    elements.append(Paragraph("<b>National Senior Certificate (Matric)</b>", body_style))
+    elements.append(Spacer(1, 0.05 * inch))
+    elements.append(
+        Paragraph("<b>National Senior Certificate (Matric)</b>", body_style)
+    )
     elements.append(Paragraph("Nombuso High School| 2018", body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Key Projects
     elements.append(Paragraph("KEY ACADEMIC & PROFESSIONAL PROJECTS", heading_style))
-    
+
     # Professional Projects
-    elements.append(Paragraph("<b>Professional Projects (Transnet SOC Ltd)</b>", body_style))
+    elements.append(
+        Paragraph("<b>Professional Projects (Transnet SOC Ltd)</b>", body_style)
+    )
     professional_projects = """
     <b>Rail Monitor Dashboard:</b> Developed real-time train tracking system with live location updates, 
     operational metrics, and automated alerts. Improved operational efficiency by providing actionable insights 
@@ -337,10 +355,12 @@ def download_resume(request):
     Technologies: React, TypeScript, D3.js, Node.js.
     """
     elements.append(Paragraph(professional_projects, body_style))
-    elements.append(Spacer(1, 0.1*inch))
-    
+    elements.append(Spacer(1, 0.1 * inch))
+
     # Academic Projects
-    elements.append(Paragraph("<b>Academic Projects (University of KwaZulu-Natal)</b>", body_style))
+    elements.append(
+        Paragraph("<b>Academic Projects (University of KwaZulu-Natal)</b>", body_style)
+    )
     academic_projects = """
     <b>IoT Smart Meter System:</b> Designed and developed Arduino-based smart electricity meter with real-time 
     energy consumption monitoring via web interface. Implemented data logging, visualization charts, and 
@@ -363,8 +383,8 @@ def download_resume(request):
     DCT, quantization, and Huffman encoding.
     """
     elements.append(Paragraph(academic_projects, body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Achievements & Recognition
     elements.append(Paragraph("ACHIEVEMENTS & RECOGNITION", heading_style))
     achievements = """
@@ -381,8 +401,8 @@ def download_resume(request):
     receiving positive feedback for clear explanations and supportive teaching approach
     """
     elements.append(Paragraph(achievements, body_style))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.15 * inch))
+
     # Professional Development & Training
     elements.append(Paragraph("PROFESSIONAL DEVELOPMENT & TRAINING", heading_style))
     certs = """
@@ -401,74 +421,106 @@ def download_resume(request):
     • Contributing to technical documentation and knowledge sharing initiatives
     """
     elements.append(Paragraph(certs, body_style))
-    elements.append(Spacer(1, 0.08*inch))
-    
+    elements.append(Spacer(1, 0.08 * inch))
+
     # References
     elements.append(Paragraph("REFERENCES", heading_style))
-    
+
     # Create two-column layout for references with compact spacing
-    ref1 = Paragraph("""
+    ref1 = Paragraph(
+        """
     <b>Professional Reference - Transnet SOC Ltd</b><br/>
     <b>Lungelihle Jafta</b> - Line Manager<br/>
     Engineer-in-Training Position<br/>
     Transnet Rail Infrastructure Manager, Johannesburg<br/>
     Email: Lungelihle.Jafta@transnet.net
-    """, reference_style)
-    
-    ref2 = Paragraph("""
+    """,
+        reference_style,
+    )
+
+    ref2 = Paragraph(
+        """
     <b>Academic Reference 1 - University of KwaZulu-Natal</b><br/>
     <b>Dr. Jules-Raymond Tapamo</b> - Lecturer<br/>
     Computer Methods Module<br/>
     University of KwaZulu-Natal<br/>
     Email: tapamoj@ukzn.ac.za
-    """, reference_style)
-    
-    ref3 = Paragraph("""
+    """,
+        reference_style,
+    )
+
+    ref3 = Paragraph(
+        """
     <b>Academic Reference 2 - University of KwaZulu-Natal</b><br/>
     <b>Wayne Nelson</b> - Lecturer<br/>
     Technical Communication Module<br/>
     University of KwaZulu-Natal<br/>
     Email: nelsonw@ukzn.ac.za
-    """, reference_style)
-    
-    ref4 = Paragraph("""
+    """,
+        reference_style,
+    )
+
+    ref4 = Paragraph(
+        """
     <b>Academic Reference 3 - University of KwaZulu-Natal</b><br/>
     <b>Adv. Dr. Ernest Bhero</b> - Lecturer<br/>
     Electronic Engineering Design Module<br/>
     University of KwaZulu-Natal<br/>
     Email: bhero@ukzn.ac.za
-    """, reference_style)
-    
+    """,
+        reference_style,
+    )
+
     # Create table with 2 columns for references with gap between columns
-    references_data = [
-        [ref1, ref3],
-        [ref2, ref4]
-    ]
-    
-    references_table = Table(references_data, colWidths=[3.2*inch, 3.2*inch])
-    references_table.setStyle(TableStyle([
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('LEFTPADDING', (0, 0), (-1, -1), 0),
-        ('RIGHTPADDING', (0, 0), (0, -1), 20),  # Add more space on right side of first column
-        ('RIGHTPADDING', (1, 0), (1, -1), 0),   # No extra padding on second column
-        ('TOPPADDING', (0, 0), (-1, -1), 0),
-        ('BOTTOMPADDING', (0, 0), (0, 0), 12),  # Add space between ref1 and ref2
-        ('BOTTOMPADDING', (1, 0), (1, 0), 12),  # Add space between ref3 and ref4
-        ('BOTTOMPADDING', (0, 1), (1, 1), 0),   # No space after last row
-    ]))
+    references_data = [[ref1, ref3], [ref2, ref4]]
+
+    references_table = Table(references_data, colWidths=[3.2 * inch, 3.2 * inch])
+    references_table.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                (
+                    "RIGHTPADDING",
+                    (0, 0),
+                    (0, -1),
+                    20,
+                ),  # Add more space on right side of first column
+                (
+                    "RIGHTPADDING",
+                    (1, 0),
+                    (1, -1),
+                    0,
+                ),  # No extra padding on second column
+                ("TOPPADDING", (0, 0), (-1, -1), 0),
+                (
+                    "BOTTOMPADDING",
+                    (0, 0),
+                    (0, 0),
+                    12,
+                ),  # Add space between ref1 and ref2
+                (
+                    "BOTTOMPADDING",
+                    (1, 0),
+                    (1, 0),
+                    12,
+                ),  # Add space between ref3 and ref4
+                ("BOTTOMPADDING", (0, 1), (1, 1), 0),  # No space after last row
+            ]
+        )
+    )
     elements.append(references_table)
-    
 
     # Build PDF
     doc.build(elements)
-    
+
     # Get the value of the BytesIO buffer and return it
     pdf = buffer.getvalue()
     buffer.close()
-    
+
     # Create the HTTP response with PDF
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="Lwazi_Gumede_Resume.pdf"'
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = 'attachment; filename="Lwazi_Gumede_Resume.pdf"'
     response.write(pdf)
-    
+
     return response

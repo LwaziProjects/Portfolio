@@ -8,25 +8,38 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ContactMessage',
+            name="ContactMessage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254, validators=[django.core.validators.EmailValidator()])),
-                ('phone', models.CharField(blank=True, max_length=20)),
-                ('subject', models.CharField(max_length=200)),
-                ('message', models.TextField()),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                (
+                    "email",
+                    models.EmailField(
+                        max_length=254,
+                        validators=[django.core.validators.EmailValidator()],
+                    ),
+                ),
+                ("phone", models.CharField(blank=True, max_length=20)),
+                ("subject", models.CharField(max_length=200)),
+                ("message", models.TextField()),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Contact Message',
-                'verbose_name_plural': 'Contact Messages',
-                'ordering': ['-created_at'],
+                "verbose_name": "Contact Message",
+                "verbose_name_plural": "Contact Messages",
+                "ordering": ["-created_at"],
             },
         ),
     ]
