@@ -388,46 +388,54 @@ def download_resume(request):
     # References
     elements.append(Paragraph("REFERENCES", heading_style))
     
-    # Professional Reference
-    ref1 = """
+    # Create two-column layout for references
+    ref1 = Paragraph("""
     <b>Professional Reference - Transnet SOC Ltd</b><br/>
     <b>Lungelihle Jafta</b> - Line Manager<br/>
     Engineer-in-Training Position<br/>
     Transnet Rail Infrastructure Manager, Johannesburg<br/>
     Email: Lungelihle.Jafta@transnet.net
-    """
-    elements.append(Paragraph(ref1, body_style))
-    elements.append(Spacer(1, 0.1*inch))
+    """, body_style)
     
-    # Academic References
-    ref2 = """
+    ref2 = Paragraph("""
     <b>Academic Reference 1 - University of KwaZulu-Natal</b><br/>
     <b>Dr. Jules-Raymond Tapamo</b> - Lecturer<br/>
     Computer Methods Module<br/>
     University of KwaZulu-Natal<br/>
     Email: tapamoj@ukzn.ac.za
-    """
-    elements.append(Paragraph(ref2, body_style))
-    elements.append(Spacer(1, 0.1*inch))
+    """, body_style)
     
-    ref3 = """
+    ref3 = Paragraph("""
     <b>Academic Reference 2 - University of KwaZulu-Natal</b><br/>
     <b>Wayne Nelson</b> - Lecturer<br/>
     Technical Communication Module<br/>
     University of KwaZulu-Natal<br/>
     Email: nelsonw@ukzn.ac.za
-    """
-    elements.append(Paragraph(ref3, body_style))
-    elements.append(Spacer(1, 0.1*inch))
+    """, body_style)
     
-    ref4 = """
+    ref4 = Paragraph("""
     <b>Academic Reference 3 - University of KwaZulu-Natal</b><br/>
     <b>Adv. Dr. Ernest Bhero</b> - Lecturer<br/>
     Electronic Engineering Design Module<br/>
     University of KwaZulu-Natal<br/>
     Email: bhero@ukzn.ac.za
-    """
-    elements.append(Paragraph(ref4, body_style))
+    """, body_style)
+    
+    # Create table with 2 columns for references
+    references_data = [
+        [ref1, ref3],
+        [ref2, ref4]
+    ]
+    
+    references_table = Table(references_data, colWidths=[3.3*inch, 3.3*inch])
+    references_table.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('LEFTPADDING', (0, 0), (-1, -1), 0),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 12),
+        ('TOPPADDING', (0, 0), (-1, -1), 0),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
+    ]))
+    elements.append(references_table)
     
 
     # Build PDF
