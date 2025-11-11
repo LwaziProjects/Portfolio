@@ -1,0 +1,501 @@
+{% extends 'main/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="display-4 mb-4 text-center">About Me</h1>
+                
+                <!-- Profile with Image -->
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="text-center">
+                            {% load static %}
+                            <img src="{% static 'images/closepicture.jpg' %}" alt="Lwazi Knowledge Gumede" class="img-fluid rounded shadow profile-img">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4 d-flex flex-column justify-content-center">
+                                <p class="lead mb-4">
+                                    I am Lwazi Knowledge Gumede, an ECSA Candidate Engineer with a BSc (Honours) in Computer Engineering from the University of KwaZulu-Natal. I am a results-driven engineer proficient in software development, system automation, and hardware integration.
+                                </p>
+                                <p class="mb-0">
+                                    My passion lies in creating innovative solutions that bridge software and hardware, developing robust systems that improve operational efficiency, and continuously learning emerging technologies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Areas of Expertise -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="mb-4 text-center">Areas of Expertise</h2>
+                
+                <div class="row g-4">
+                    <!-- Programming -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-code-square text-primary"></i> Programming Languages
+                                </h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary">C++</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    <span class="badge bg-primary">Java</span>
+                                    <span class="badge bg-primary">JavaScript</span>
+                                    <span class="badge bg-primary">TypeScript</span>
+                                    <span class="badge bg-primary">PHP</span>
+                                    <span class="badge bg-primary">C#</span>
+                                    <span class="badge bg-primary">C</span>
+                                    <span class="badge bg-primary">SQL</span>
+                                    <span class="badge bg-primary">HTML/CSS</span>
+                                    <span class="badge bg-primary">Solidity</span>
+                                    <span class="badge bg-primary">Bash</span>
+                                    <span class="badge bg-primary">PowerShell</span>
+                                    <span class="badge bg-primary">R</span>
+                                    <span class="badge bg-primary">MATLAB</span>
+                                    <span class="badge bg-primary">Assembly</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks & Libraries -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-layers text-primary"></i> Frameworks & Libraries
+                                </h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-success">React</span>
+                                    <span class="badge bg-success">React Native</span>
+                                    <span class="badge bg-success">Next.js</span>
+                                    <span class="badge bg-success">Vue.js</span>
+                                    <span class="badge bg-success">Angular</span>
+                                    <span class="badge bg-success">Django</span>
+                                    <span class="badge bg-success">Node.js</span>
+                                    <span class="badge bg-success">Express.js</span>
+                                    <span class="badge bg-success">NestJS</span>
+                                    <span class="badge bg-success">Spring Boot</span>
+                                    <span class="badge bg-success">Bootstrap</span>
+                                    <span class="badge bg-success">Tailwind CSS</span>
+                                    <span class="badge bg-success">Material-UI</span>
+                                    <span class="badge bg-success">TensorFlow</span>
+                                    <span class="badge bg-success">PyTorch</span>
+                                    <span class="badge bg-success">NumPy</span>
+                                    <span class="badge bg-success">Pandas</span>
+                                    <span class="badge bg-success">Scikit-learn</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database Management -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-database text-primary"></i> Database Management
+                                </h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">MySQL</span>
+                                    <span class="badge bg-info">PostgreSQL</span>
+                                    <span class="badge bg-info">SQLite</span>
+                                    <span class="badge bg-info">Oracle DB</span>
+                                    <span class="badge bg-info">SharePoint</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Automation -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-gear-wide-connected text-primary"></i> System Automation
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Cron Jobs & Task Scheduling</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Bash Scripting</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Process Automation</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> CI/CD Pipelines</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> System Integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hardware & IoT -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-cpu text-primary"></i> Hardware & IoT
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> ESP32 Development</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Microcontroller Programming</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Embedded Systems</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> IoT Solutions</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> Hardware-Software Integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Visualization & Analysis -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-bar-chart text-primary"></i> Data Visualization & Analysis
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Power BI</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Data Analytics</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Dashboard Development</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Reporting Systems</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> Google Sheets Integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blockchain & Web3 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-link-45deg text-primary"></i> Blockchain & Web3
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Smart Contract Development</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Solidity Programming</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Ethereum Development</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Web3.js Integration</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> DApp Development</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platforms -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-tools text-primary"></i> Tools & Platforms
+                                </h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-warning text-dark">Git</span>
+                                    <span class="badge bg-warning text-dark">GitHub</span>
+                                    <span class="badge bg-warning text-dark">GitLab</span>
+                                    <span class="badge bg-warning text-dark">VS Code</span>
+                                    <span class="badge bg-warning text-dark">IntelliJ IDEA</span>
+                                    <span class="badge bg-warning text-dark">PyCharm</span>
+                                    <span class="badge bg-warning text-dark">Linux</span>
+                                    <span class="badge bg-warning text-dark">Ubuntu</span>
+                                    <span class="badge bg-warning text-dark">Postman</span>
+                                    <span class="badge bg-warning text-dark">JIRA</span>
+                                    <span class="badge bg-warning text-dark">Apache</span>
+                                    <span class="badge bg-warning text-dark">AWS</span>
+                                    <span class="badge bg-warning text-dark">Azure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-cloud text-primary"></i> Cloud & DevOps
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Cloud Infrastructure Management</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Containerization & Orchestration</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> CI/CD Pipeline Development</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Infrastructure as Code</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Monitoring & Logging</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> Deployment Automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- API Development & Integration -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-plugin text-primary"></i> API Development & Integration
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> RESTful API Design</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> GraphQL Implementation</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Microservices Architecture</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Third-Party API Integration</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Webhook Development</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> API Documentation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security & Testing -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-shield-check text-primary"></i> Security & Testing
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Unit & Integration Testing</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Test-Driven Development (TDD)</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Security Best Practices</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Authentication & Authorization</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Code Review & Quality Assurance</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> Vulnerability Assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile & Cross-Platform Development -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-phone text-primary"></i> Mobile & Cross-Platform
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Responsive Web Design</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Progressive Web Apps (PWA)</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Mobile-First Development</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Cross-Browser Compatibility</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> React Native Development</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Management & Agile -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">
+                                    <i class="bi bi-kanban text-primary"></i> Project Management & Agile
+                                </h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Agile & Scrum Methodologies</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Sprint Planning & Execution</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Technical Documentation</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Stakeholder Communication</li>
+                                    <li class="mb-2"><i class="bi bi-check2 text-success"></i> Requirements Analysis</li>
+                                    <li class="mb-0"><i class="bi bi-check2 text-success"></i> Risk Management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="mb-4 text-center">Soft Skills & Personal Qualities</h2>
+                <div class="row g-4">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-lightbulb display-4 text-warning"></i>
+                                </div>
+                                <h5 class="card-title">Problem Solving</h5>
+                                <p class="card-text text-muted">Analytical thinking and creative approach to complex technical challenges</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-people display-4 text-primary"></i>
+                                </div>
+                                <h5 class="card-title">Team Collaboration</h5>
+                                <p class="card-text text-muted">Effective communication and collaboration with cross-functional teams</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-graph-up-arrow display-4 text-success"></i>
+                                </div>
+                                <h5 class="card-title">Adaptability</h5>
+                                <p class="card-text text-muted">Quick learner who thrives in dynamic and evolving environments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-clock-history display-4 text-info"></i>
+                                </div>
+                                <h5 class="card-title">Time Management</h5>
+                                <p class="card-text text-muted">Strong organizational skills with ability to prioritize and meet deadlines</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-chat-dots display-4 text-danger"></i>
+                                </div>
+                                <h5 class="card-title">Communication</h5>
+                                <p class="card-text text-muted">Clear communicator able to explain technical concepts to diverse audiences</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-bullseye display-4 text-primary"></i>
+                                </div>
+                                <h5 class="card-title">Attention to Detail</h5>
+                                <p class="card-text text-muted">Meticulous approach ensuring quality and accuracy in all deliverables</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-trophy display-4 text-warning"></i>
+                                </div>
+                                <h5 class="card-title">Leadership</h5>
+                                <p class="card-text text-muted">Experience leading tenders and managing engineering change proposals</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-heart display-4 text-danger"></i>
+                                </div>
+                                <h5 class="card-title">Work Ethic</h5>
+                                <p class="card-text text-muted">Dedicated professional committed to excellence and continuous improvement</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="mb-3">
+                                    <i class="bi bi-shield-check display-4 text-success"></i>
+                                </div>
+                                <h5 class="card-title">Critical Thinking</h5>
+                                <p class="card-text text-muted">Strategic thinker with ability to analyze situations and make informed decisions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="mb-4 text-center">Beyond Work</h2>
+                <p class="text-center text-muted mb-4">A glimpse into my life, culture, and memorable moments</p>
+                
+                <div class="row g-3">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/graduatingwithmymotherandbrother.jpg' %}" class="card-img-top gallery-img" alt="Graduation with family">
+                            <div class="card-body">
+                                <p class="card-text text-center small">Graduation Day - A proud moment with family</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/cultureZulu.jpg' %}" class="card-img-top gallery-img" alt="Zulu culture">
+                            <div class="card-body">
+                                <p class="card-text text-center small">Celebrating Zulu heritage and culture</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/Onmycomputer.jpg' %}" class="card-img-top gallery-img" alt="Working on computer">
+                            <div class="card-body">
+                                <p class="card-text text-center small">In my element - coding and creating</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/sitevisit2.jpg' %}" class="card-img-top gallery-img" alt="Site visit">
+                            <div class="card-body">
+                                <p class="card-text text-center small">On-site engineering work</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/funatthebeach.jpg' %}" class="card-img-top gallery-img" alt="Beach fun">
+                            <div class="card-body">
+                                <p class="card-text text-center small">Taking time to unwind and recharge</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/fullbody.jpg' %}" class="card-img-top gallery-img" alt="Professional photo">
+                            <div class="card-body">
+                                <p class="card-text text-center small">Ready for new opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow-sm bg-light">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Professional Summary</h3>
+                        <p>
+                            With a strong foundation in computer engineering and hands-on experience in both software development and hardware integration, I bring a unique perspective to engineering challenges. My work at Transnet has allowed me to apply theoretical knowledge to real-world infrastructure projects, developing monitoring systems, automating processes, and managing critical system upgrades.
+                        </p>
+                        <p class="mb-0">
+                            I am committed to continuous learning and professional development, currently working towards my ECSA registration while contributing to significant projects in the rail infrastructure sector.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

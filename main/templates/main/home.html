@@ -1,0 +1,106 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-3 fw-bold mb-3">Lwazi Knowledge Gumede</h1>
+                <p class="lead mb-4">ECSA Candidate Engineer | BSc (Honours) Computer Engineering</p>
+                <p class="fs-5 mb-4">
+                    Results-driven engineer proficient in software development, system automation, and hardware integration
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'about' %}" class="btn btn-light btn-lg">
+                        <i class="bi bi-person"></i> Learn More
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-envelope"></i> Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Info Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-code-slash display-4 text-primary"></i>
+                        </div>
+                        <h3 class="card-title h5">Software Development</h3>
+                        <p class="card-text">Expert in Python, C++, Java, JavaScript, and modern web frameworks including React, Django, and Flask.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-gear-fill display-4 text-primary"></i>
+                        </div>
+                        <h3 class="card-title h5">System Automation</h3>
+                        <p class="card-text">Specialized in developing automation solutions, cron jobs, bash scripting, and system integration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-cpu display-4 text-primary"></i>
+                        </div>
+                        <h3 class="card-title h5">Hardware Integration</h3>
+                        <p class="card-text">Experience with IoT systems, ESP32, microcontrollers, and embedded systems development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Current Position Highlight -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-3">
+                            <i class="bi bi-briefcase text-primary"></i> Current Position
+                        </h2>
+                        <h4 class="text-primary">Engineer-in-Training</h4>
+                        <p class="text-muted mb-3">Transnet Rail Infrastructure Manager | April 2025 - Present</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Developing Rail Monitoring dashboard using React TypeScript</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Leading Open Tenders and procurement processes</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Implementing Engineering Change Proposals (ECPs)</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Managing CAS upgrades and system automation</li>
+                        </ul>
+                        <a href="{% url 'experience' %}" class="btn btn-primary">View Full Experience</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Interested in Working Together?</h2>
+        <p class="lead mb-4">I'm always open to discussing new projects, creative ideas, or opportunities.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-envelope"></i> Contact Me
+        </a>
+    </div>
+</section>
+{% endblock %}
