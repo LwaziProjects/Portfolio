@@ -299,52 +299,83 @@ img {
 
 /* Dark Mode Styles */
 [data-bs-theme="dark"] {
-    /* Ensure all headings are visible in dark mode */
+    /* Ensure all headings are visible in dark mode with high contrast */
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: #ffffff !important;
+    }
+    
+    /* Ensure all text content is visible with high contrast */
+    p, li, div, span, label, td, th {
         color: #f8f9fa !important;
     }
     
-    /* Ensure all text content is visible */
-    p, li, div, span, label {
-        color: #e9ecef !important;
+    /* Body text */
+    body {
+        color: #f8f9fa !important;
+        background-color: #212529;
     }
     
     /* Card text in dark mode */
     .card {
-        background-color: #212529;
+        background-color: #1a1d20;
         border-color: #495057;
+        color: #f8f9fa !important;
     }
     
     .card-body {
-        color: #e9ecef !important;
+        color: #f8f9fa !important;
+    }
+    
+    .card-body p,
+    .card-body li,
+    .card-body span,
+    .card-body div {
+        color: #f8f9fa !important;
     }
     
     .card-title,
     .card-header {
+        color: #ffffff !important;
+    }
+    
+    .card-text {
         color: #f8f9fa !important;
     }
     
     /* List group items */
     .list-group-item {
-        background-color: #212529;
+        background-color: #1a1d20;
         border-color: #495057;
-        color: #e9ecef !important;
+        color: #f8f9fa !important;
+    }
+    
+    .list-group-item i {
+        color: #f8f9fa !important;
     }
     
     /* Lead text and professional summary */
     .lead {
-        color: #e9ecef !important;
+        color: #f8f9fa !important;
     }
     
     /* Alert boxes */
     .alert {
-        color: #e9ecef !important;
+        color: #ffffff !important;
+        background-color: #1a1d20;
+        border-color: #495057;
     }
     
     .alert-info {
         background-color: #0c5460;
         border-color: #0c5460;
+        color: #ffffff !important;
+    }
+    
+    .alert-success {
+        background-color: #0f5132;
+        border-color: #0f5132;
+        color: #ffffff !important;
     }
     
     /* Icons in dark mode */
@@ -364,9 +395,39 @@ img {
         color: #ffda6a !important;
     }
     
+    .text-muted {
+        color: #adb5bd !important;
+    }
+    
+    .text-secondary {
+        color: #adb5bd !important;
+    }
+    
     /* Form labels */
     .form-label {
-        color: #e9ecef !important;
+        color: #f8f9fa !important;
+    }
+    
+    .form-control,
+    .form-select {
+        background-color: #1a1d20;
+        border-color: #495057;
+        color: #f8f9fa !important;
+    }
+    
+    .form-control::placeholder {
+        color: #adb5bd !important;
+    }
+    
+    /* Badges */
+    .badge {
+        color: #ffffff !important;
+    }
+    
+    /* Container and sections */
+    .container, .container-fluid,
+    section, article {
+        color: #f8f9fa !important;
     }
     
     /* Scrollbar for dark mode */
@@ -390,5 +451,40 @@ img {
     /* Navbar in dark mode */
     .navbar {
         box-shadow: 0 2px 4px rgba(255,255,255,.1);
+        background-color: #1a1d20 !important;
+    }
+    
+    .navbar-brand,
+    .nav-link {
+        color: #f8f9fa !important;
+    }
+    
+    .nav-link:hover {
+        color: #ffffff !important;
+    }
+    
+    /* Footer */
+    footer {
+        background-color: #1a1d20;
+        color: #f8f9fa !important;
+    }
+    
+    footer p,
+    footer a {
+        color: #f8f9fa !important;
+    }
+    
+    /* Tables */
+    table {
+        color: #f8f9fa !important;
+    }
+    
+    .table {
+        color: #f8f9fa !important;
+    }
+    
+    /* Any remaining gray text */
+    .text-dark {
+        color: #f8f9fa !important;
     }
 }
