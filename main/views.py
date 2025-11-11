@@ -266,23 +266,34 @@ def download_resume(request):
     elements.append(Spacer(1, 0.1*inch))
     
     # Academic Experience
-    elements.append(Paragraph("<b>Tutor - Computer Engineering Department</b>", body_style))
-    elements.append(Paragraph("University of Johannesburg | 2022 - 2023", body_style))
-    tutor_duties = """
-    • Tutored undergraduate students in Computer Architecture, Digital Systems, and Programming<br/>
-    • Supervised by Prof. S. Xulu and Prof. O. A. Amodu<br/>
-    • Conducted lab sessions and provided academic support for 50+ students
+    elements.append(Paragraph("<b>Teaching & Demonstration Roles</b>", body_style))
+    elements.append(Paragraph("University of KwaZulu-Natal | 2024 - 2025", body_style))
+    teaching_duties = """
+    <b>Technical Communication Tutor</b> (Feb - May 2025) | Lecturer: Wayne Nelson<br/>
+    • Facilitated tutorials on technical writing, professional documentation, and presentation skills<br/>
+    • Coached first-year engineering students in technical report writing and communication strategies<br/>
+    <br/>
+    <b>Computer Methods Demonstrator</b> (Jun - Nov 2024) | Lecturer: Dr. Jules-Raymond Tapamo<br/>
+    • Conducted laboratory sessions on programming and computational methods<br/>
+    • Demonstrated numerical analysis techniques and algorithm implementation<br/>
+    <br/>
+    <b>Electronic Engineering Design Tutor</b> (Feb - May 2024) | Lecturer: Adv. Dr. Ernest Bhero<br/>
+    • Mentored students in circuit design, system analysis, and practical implementation<br/>
+    <br/>
+    <b>Electrical Principles Demonstrator</b> (Feb - May 2024) | Lecturer: Dr. Bhekisizwe Mthethwa<br/>
+    • Demonstrated concepts across multiple modules: Electrical Principles, Field Theory, and Electronics<br/>
+    • Supervised laboratory sessions ensuring student safety and proper equipment use
     """
-    elements.append(Paragraph(tutor_duties, body_style))
+    elements.append(Paragraph(teaching_duties, body_style))
     elements.append(Spacer(1, 0.15*inch))
     
     # Education
     elements.append(Paragraph("EDUCATION", heading_style))
     elements.append(Paragraph("<b>BSc (Honours) Computer Engineering</b>", body_style))
-    elements.append(Paragraph("University of Johannesburg | 2022 - 2023", body_style))
+    elements.append(Paragraph("University of KwaZulu-Natal| 2022 - 2023", body_style))
     elements.append(Spacer(1, 0.05*inch))
     elements.append(Paragraph("<b>BSc Computer Engineering</b>", body_style))
-    elements.append(Paragraph("University of Johannesburg | 2018 - 2021", body_style))
+    elements.append(Paragraph("University of KwaZulu-Natal| 2018 - 2021", body_style))
     elements.append(Spacer(1, 0.15*inch))
     
     # Key Projects
@@ -304,25 +315,25 @@ def download_resume(request):
     reporting system. Technologies: Python, OpenCV, Django REST Framework, PostgreSQL.<br/>
     <br/>
     <b>CAS Dashboard Redesign:</b> Redesigned Collision Avoidance System dashboard with improved UX/UI, 
-    real-time alerts, and enhanced data visualization. Reduced incident response time by 30%. 
+    real-time alerts, and enhanced data visualization. Significantly reduced incident response time. 
     Technologies: React, TypeScript, D3.js, Node.js.
     """
     elements.append(Paragraph(professional_projects, body_style))
     elements.append(Spacer(1, 0.1*inch))
     
     # Academic Projects
-    elements.append(Paragraph("<b>Academic Projects (University of Johannesburg)</b>", body_style))
+    elements.append(Paragraph("<b>Academic Projects (University of KwaZulu-Natal)</b>", body_style))
     academic_projects = """
     <b>IoT Smart Meter System:</b> Designed and developed Arduino-based smart electricity meter with real-time 
     energy consumption monitoring via web interface. Implemented data logging, visualization charts, and 
-    consumption alerts. Achieved 95% accuracy in power measurement.<br/>
+    consumption alerts with high accuracy in power measurement.<br/>
     <br/>
     <b>Blockchain Invoice Verification System:</b> Created secure blockchain-based platform for invoice management 
     and fraud prevention. Implemented smart contracts for automated verification and immutable transaction records. 
-    Reduced processing time by 60%.<br/>
+    Significantly reduced processing time.<br/>
     <br/>
     <b>Multi-Factor Authentication System:</b> Built biometric authentication system combining facial recognition 
-    and fingerprint scanning. Achieved 95%+ accuracy using machine learning algorithms. 
+    and fingerprint scanning with high accuracy using machine learning algorithms. 
     Technologies: Python, OpenCV, TensorFlow, SQLite.<br/>
     <br/>
     <b>PIC16 Embedded Game System:</b> Designed custom hardware and firmware for microcontroller-based gaming 
@@ -330,7 +341,7 @@ def download_resume(request):
     Featured LCD display and button controls.<br/>
     <br/>
     <b>JPEG Image Compression System:</b> Implemented industry-standard JPEG compression algorithm from scratch. 
-    Achieved 60% file size reduction while maintaining image quality. Demonstrated understanding of 
+    Achieved significant file size reduction while maintaining image quality. Demonstrated understanding of 
     DCT, quantization, and Huffman encoding.
     """
     elements.append(Paragraph(academic_projects, body_style))
@@ -348,7 +359,7 @@ def download_resume(request):
     • <b>Industry Impact:</b> Delivered 6 production-ready systems at Transnet SOC Ltd within 7 months, 
     directly improving operational efficiency and safety in rail transport infrastructure<br/>
     <br/>
-    • <b>Teaching Excellence:</b> Successfully tutored 50+ undergraduate students in complex engineering subjects, 
+    • <b>Teaching Excellence:</b> Successfully tutored numerous undergraduate students in complex engineering subjects, 
     receiving positive feedback for clear explanations and supportive teaching approach
     """
     elements.append(Paragraph(achievements, body_style))
@@ -380,10 +391,11 @@ def download_resume(request):
     <b>Available upon request</b><br/>
     <br/>
     Professional and academic references available including supervisors from Transnet SOC Ltd 
-    and University of Johannesburg faculty members.
+    and University of KwaZulu-Natalfaculty members.
     """
     elements.append(Paragraph(references, body_style))
     
+
     # Build PDF
     doc.build(elements)
     
