@@ -391,7 +391,7 @@ def download_resume(request):
     <b>Available upon request</b><br/>
     <br/>
     Professional and academic references available including supervisors from Transnet SOC Ltd 
-    and University of KwaZulu-Natalfaculty members.
+    and University of KwaZulu-Natal faculty members.
     """
     elements.append(Paragraph(references, body_style))
     
