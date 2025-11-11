@@ -25,6 +25,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files
 COPY . .
 
+# Copy entrypoint script
+COPY docker-entrypoint.sh /app/docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
@@ -35,5 +39,5 @@ USER appuser
 # Expose port 8000
 EXPOSE 8000
 
-# Run Django development server (for production, use gunicorn)
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run the entrypoint script
+CMD ["/app/docker-entrypoint.sh"]
