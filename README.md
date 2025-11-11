@@ -2,18 +2,24 @@
 
 A professional portfolio website built with Django showcasing the qualifications, experience, projects, and skills of Lwazi Knowledge Gumede, an ECSA Candidate Engineer with a BSc (Honours) in Computer Engineering.
 
+🌐 **Live Site**: [stephusband.pythonanywhere.com](https://stephusband.pythonanywhere.com)  
+📦 **GitHub**: [github.com/LwaziProjects/Portfolio](https://github.com/LwaziProjects/Portfolio)
+
 ## Features
 
 - **Home Page**: Welcome page with professional summary and quick links
 - **About Page**: Detailed bio with areas of expertise and technical skills
-- **Experience Page**: Professional work history at Transnet with detailed achievements
-- **Projects Page**: Showcase of key projects including:
-  - Authentication and Key Management System
+- **Experience Page**: Professional work history at Transnet and UKZN with detailed achievements
+- **Projects Page**: Showcase of 15 projects (9 academic + 6 professional) including:
   - IoT Smart Meter System
-  - Blockchain Invoice Discounting Platform
+  - Blockchain Invoice Verification
+  - Multi-Factor Authentication System
+  - Rail Monitor Dashboard (Transnet)
+  - VIS Master System (Transnet)
+  - CAS Dashboard Redesign (Transnet)
 - **Qualifications Page**: Educational background and academic achievements
-- **Contact Page**: Contact information and functional message form with email notifications
-- **Email Notifications**: Automatic email alerts when contact form is submitted
+- **Contact Page**: Contact information with message form (email disabled on free hosting)
+- **PDF Resume Download**: Professional 2-page resume generated on-the-fly with ReportLab
 - **Responsive Design**: Bootstrap-based responsive layout for all devices
 - **Modern UI**: Professional styling with smooth animations and transitions
 
@@ -24,7 +30,65 @@ A professional portfolio website built with Django showcasing the qualifications
 - **Styling**: Bootstrap 5.3
 - **Icons**: Bootstrap Icons
 - **Database**: SQLite (development)
-- **Python**: 3.8+
+- **Python**: 3.10+
+- **PDF Generation**: ReportLab 4.0+
+- **Email**: Django SMTP (disabled on free hosting)
+
+## PDF Resume Feature
+
+The portfolio includes a professional PDF resume download feature:
+
+- **2-Page Professional Resume**: Automatically generated with ReportLab
+- **Comprehensive Content**: Includes contact info, summary, skills, experience, projects, education, achievements, and references
+- **Download Locations**:
+  - Navigation bar "Resume" button (all pages)
+  - Home page "Download Resume" button
+  - Direct URL: `/download-resume/`
+- **Dynamic Content**: Resume automatically includes current position duration
+- **Professional Formatting**: Clean layout with blue headings, proper spacing, and two-column references
+
+### PDF Resume Contents:
+- Contact Information
+- Professional Summary
+- Technical Skills (6 categories)
+- Core Competencies (Soft Skills)
+- Professional Experience (Transnet with 6 projects)
+- Academic Experience (UKZN teaching positions with supervisors)
+- Education (BSc Honours & BSc)
+- Key Projects (4 professional + 5 academic with full descriptions)
+- Achievements & Recognition
+- Professional Development & Training
+- References (4 contacts in two-column layout)
+
+## Email Configuration
+
+Email notifications are currently **disabled** on the deployed site (PythonAnywhere free tier restrictions).
+
+### Why Email is Disabled:
+- PythonAnywhere free accounts block Gmail SMTP for security
+- Contact form messages are saved to database
+- Access messages via Django admin panel
+
+### Alternative Email Solutions (if needed):
+
+#### Option 1: Use SendGrid (Free - 100 emails/day)
+1. Sign up at [sendgrid.com](https://sendgrid.com)
+2. Create API Key
+3. Update `settings.py`:
+   ```python
+   EMAIL_HOST = 'smtp.sendgrid.net'
+   EMAIL_HOST_USER = 'apikey'
+   EMAIL_HOST_PASSWORD = config('SENDGRID_API_KEY')
+   ```
+4. Add to `.env`: `SENDGRID_API_KEY=your_key_here`
+5. Install: `pip install python-decouple`
+6. Reload web app
+
+#### Option 2: Use Mailgun (Free - 5,000 emails/month)
+Similar setup to SendGrid with Mailgun credentials
+
+#### Option 3: PythonAnywhere Paid Account
+Add `smtp.gmail.com` to email allowlist in Account settings
 
 ## Project Structure
 
@@ -131,15 +195,7 @@ python manage.py collectstatic
 
 To receive email notifications when someone submits the contact form:
 
-**Quick Setup:**
-```powershell
-.\setup_email.ps1
-```
-
-**Manual Setup:**
-1. See detailed instructions in `EMAIL_SETUP.md`
-2. Create `.env` file with your Gmail App Password
-3. Configure email settings in Django admin
+**Note:** Email notifications are disabled on deployed site. See "Email Configuration" section above for setup options if needed locally.
 
 ### Step 9: Run the Development Server
 
