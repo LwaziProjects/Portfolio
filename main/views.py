@@ -138,7 +138,15 @@ def download_resume(request):
     buffer = BytesIO()
     
     # Create the PDF object using the buffer as its "file"
-    doc = SimpleDocTemplate(buffer, pagesize=A4, topMargin=0.5*inch, bottomMargin=0.5*inch)
+    doc = SimpleDocTemplate(
+        buffer, 
+        pagesize=A4, 
+        topMargin=0.5*inch, 
+        bottomMargin=0.5*inch,
+        title="Lwazi Knowledge Gumede - Resume",
+        author="Lwazi Knowledge Gumede",
+        subject="Professional Resume - ECSA Candidate Engineer"
+    )
     
     # Container for the 'Flowable' objects
     elements = []
@@ -302,8 +310,8 @@ def download_resume(request):
     elements.append(Paragraph("<b>BSc (Honours) Computer Engineering</b>", body_style))
     elements.append(Paragraph("University of KwaZulu-Natal| 2022 - 2023", body_style))
     elements.append(Spacer(1, 0.05*inch))
-    elements.append(Paragraph("<b>BSc Computer Engineering</b>", body_style))
-    elements.append(Paragraph("University of KwaZulu-Natal| 2018 - 2021", body_style))
+    elements.append(Paragraph("<b>National Senior Certificate (Matric)</b>", body_style))
+    elements.append(Paragraph("Nombuso High School| 2018", body_style))
     elements.append(Spacer(1, 0.15*inch))
     
     # Key Projects
