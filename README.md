@@ -78,7 +78,7 @@ portfolio_website/
 ### Step 1: Clone or Navigate to the Project Directory
 
 ```powershell
-cd c:\Users\0174988\Documents\usefulstuff\MyResume\portfolio_website
+cd c:\\yourpath
 ```
 
 ### Step 2: Create a Virtual Environment (Recommended)
