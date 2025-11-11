@@ -6,9 +6,7 @@ import sys
 import django
 
 # Setup Django
-os.chdir('c:/Users/0174988/Documents/usefulstuff/MyResume/portfolio_website')
-sys.path.insert(0, 'c:/Users/0174988/Documents/usefulstuff/MyResume/portfolio_website')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings')
+
 django.setup()
 
 from django.core.mail import send_mail
