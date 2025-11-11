@@ -80,43 +80,42 @@ def contact(request):
             # Save the contact message
             contact_message = form.save()
 
-            # NOTE: Email sending is disabled on PythonAnywhere free tier
-            # PythonAnywhere free accounts block Gmail SMTP for security reasons.
-            # To enable email notifications, upgrade to paid account or use SendGrid/Mailgun.
-            # See PYTHONANYWHERE_EMAIL_FIX.md for detailed setup instructions.
+            # Email notification code (ENABLED)
+            try:
+                subject = f"New Contact Form Submission: {contact_message.subject}"
+                message = f"""
+You have received a new message from your portfolio website!
 
-            # Email notification code (DISABLED)
-            # try:
-            #     subject = f"New Contact Form Submission: {contact_message.subject}"
-            #     message = f"""
-            # You have received a new message from your portfolio website!
-            #
-            # From: {contact_message.name}
-            # Email: {contact_message.email}
-            # Phone: {contact_message.phone or 'Not provided'}
-            # Subject: {contact_message.subject}
-            #
-            # Message:
-            # {contact_message.message}
-            #
-            # ---
-            # Submitted on: {contact_message.created_at.strftime('%B %d, %Y at %I:%M %p')}
-            # """
-            #
-            #     send_mail(
-            #         subject=subject,
-            #         message=message,
-            #         from_email=settings.DEFAULT_FROM_EMAIL,
-            #         recipient_list=[settings.ADMIN_EMAIL],
-            #         fail_silently=False,
-            #     )
-            # except Exception as e:
-            #     print(f"Email sending failed: {str(e)}")
+From: {contact_message.name}
+Email: {contact_message.email}
+Phone: {contact_message.phone or 'Not provided'}
+Subject: {contact_message.subject}
 
-            messages.success(
-                request,
-                "Thank you for your message! Your submission has been saved and I will review it in the admin panel.",
-            )
+Message:
+{contact_message.message}
+
+---
+Submitted on: {contact_message.created_at.strftime('%B %d, %Y at %I:%M %p')}
+"""
+
+                send_mail(
+                    subject=subject,
+                    message=message,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[settings.ADMIN_EMAIL],
+                    fail_silently=False,
+                )
+                
+                messages.success(
+                    request,
+                    "Thank you for your message! We've received your submission and sent you a confirmation email.",
+                )
+            except Exception as e:
+                print(f"Email sending failed: {str(e)}")
+                messages.success(
+                    request,
+                    "Thank you for your message! Your submission has been saved (email notification failed).",
+                )
 
             return redirect("contact")
         else:
