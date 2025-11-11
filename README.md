@@ -268,6 +268,195 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+## Deployment
+
+### Deploying to PythonAnywhere
+
+#### Quick Start
+
+1. **Create a PythonAnywhere Account**
+   - Go to [https://www.pythonanywhere.com](https://www.pythonanywhere.com)
+   - Sign up for a free account
+   - Verify your email address
+
+2. **Open a Bash Console**
+   - From PythonAnywhere dashboard, click "Consoles"
+   - Start a new "Bash" console
+
+3. **Clone Your Repository**
+   ```bash
+   git clone https://github.com/LwaziProjects/Portfolio.git
+   cd Portfolio
+   ```
+
+4. **Create Virtual Environment**
+   ```bash
+   mkvirtualenv portfolio-env --python=/usr/bin/python3.10
+   workon portfolio-env
+   pip install -r requirements.txt
+   ```
+
+5. **Configure Django**
+   ```bash
+   python manage.py collectstatic --noinput
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+
+#### Setting Up the Web App
+
+1. **Create a New Web App**
+   - Go to "Web" tab in PythonAnywhere dashboard
+   - Click "Add a new web app"
+   - Choose "Manual configuration"
+   - Select Python 3.10
+
+2. **Configure WSGI File**
+   - In the "Web" tab, click on the WSGI configuration file link
+   - Replace the contents with:
+   ```python
+   import os
+   import sys
+
+   # Add your project directory to the sys.path
+   path = '/home/stephusband/Portfolio'
+   if path not in sys.path:
+       sys.path.append(path)
+
+   # Set environment variable to tell Django where your settings module is
+   os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings'
+
+   # Activate your virtual environment
+   activate_this = '/home/stephusband/.virtualenvs/portfolio-env/bin/activate_this.py'
+   with open(activate_this) as file_:
+       exec(file_.read(), dict(__file__=activate_this))
+
+   # Import Django's WSGI handler
+   from django.core.wsgi import get_wsgi_application
+   application = get_wsgi_application()
+   ```
+   - **Important**: Replace `stephusband` with your PythonAnywhere username
+
+3. **Configure Virtual Environment**
+   - In the "Web" tab, scroll to "Virtualenv" section
+   - Enter the path: `/home/yourusername/.virtualenvs/portfolio-env`
+   - Replace `yourusername` with your actual PythonAnywhere username
+
+4. **Configure Static Files**
+   - In the "Web" tab, scroll to "Static files" section
+   - Add a new mapping:
+     - URL: `/static/`
+     - Directory: `/home/yourusername/Portfolio/staticfiles`
+   - Add another mapping:
+     - URL: `/media/`
+     - Directory: `/home/yourusername/Portfolio/main/images`
+
+5. **Update Django Settings**
+   - Open `portfolio/settings.py` in the PythonAnywhere editor or bash console
+   - Update `ALLOWED_HOSTS`:
+   ```python
+   ALLOWED_HOSTS = ['yourusername.pythonanywhere.com', 'localhost', '127.0.0.1']
+   ```
+
+6. **Reload Web App**
+   - Go back to the "Web" tab
+   - Click the green "Reload" button
+   - Visit your site at: `https://yourusername.pythonanywhere.com`
+
+#### Common Deployment Issues and Solutions
+
+**Issue: "ModuleNotFoundError: No module named 'django'"**
+- **Solution**: Activate your virtual environment:
+  ```bash
+  workon portfolio-env
+  pip install -r requirements.txt
+  ```
+
+**Issue: "NameError: name 'os' is not defined"**
+- **Solution**: Add `import os` at the top of `portfolio/settings.py`
+
+**Issue: WSGI shows "yourusername" placeholder**
+- **Solution**: Replace all instances of `yourusername` or `stephusband` with your actual PythonAnywhere username in:
+  - WSGI configuration file
+  - Virtualenv path
+  - Static files paths
+
+**Issue: Static files not loading**
+- **Solution**: Run collectstatic and verify paths:
+  ```bash
+  python manage.py collectstatic --noinput
+  ```
+  - Check Static files configuration in Web tab
+
+**Issue: Git merge conflicts during pull**
+- **Solution**: Stash local changes before pulling:
+  ```bash
+  git stash
+  git pull origin main
+  git stash pop
+  ```
+
+#### Updating Your Deployed Site
+
+When you make changes to your code:
+
+1. **Commit and Push to GitHub**:
+   ```powershell
+   git add .
+   git commit -m "Your update message"
+   git push origin main
+   ```
+
+2. **Update on PythonAnywhere**:
+   ```bash
+   cd ~/Portfolio
+   workon portfolio-env
+   git pull origin main
+   pip install -r requirements.txt
+   python manage.py collectstatic --noinput
+   python manage.py migrate
+   ```
+
+3. **Reload Web App**:
+   - Go to "Web" tab
+   - Click the green "Reload" button
+
+#### Environment Variables (Optional)
+
+For production, consider using environment variables for sensitive data:
+
+1. Create a `.env` file (don't commit this to Git):
+   ```
+   SECRET_KEY=your-secret-key-here
+   DEBUG=False
+   DATABASE_URL=your-database-url
+   ```
+
+2. Update `settings.py`:
+   ```python
+   import os
+   from pathlib import Path
+
+   # Load environment variables
+   SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
+   DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+   ```
+
+3. Set environment variables in PythonAnywhere:
+   - Use the "Files" tab to create/edit `.env`
+   - Or set in WSGI configuration file
+
+### Deploying to Other Platforms
+
+This Django application can also be deployed to:
+- **Heroku**: Use `Procfile` and `gunicorn`
+- **Railway**: Direct GitHub integration
+- **DigitalOcean**: Using App Platform or Droplets
+- **AWS**: Elastic Beanstalk or EC2
+- **Azure**: App Service
+
+Refer to each platform's Django deployment documentation for specific instructions.
+
 ## License
 
 This is a personal portfolio website. All rights reserved by Lwazi Knowledge Gumede.
