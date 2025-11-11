@@ -387,13 +387,47 @@ def download_resume(request):
     
     # References
     elements.append(Paragraph("REFERENCES", heading_style))
-    references = """
-    <b>Available upon request</b><br/>
-    <br/>
-    Professional and academic references available including supervisors from Transnet SOC Ltd 
-    and University of KwaZulu-Natal faculty members.
+    
+    # Professional Reference
+    ref1 = """
+    <b>Professional Reference - Transnet SOC Ltd</b><br/>
+    <b>Lungelihle Jafta</b> - Line Manager<br/>
+    Engineer-in-Training Position<br/>
+    Transnet Rail Infrastructure Manager, Johannesburg<br/>
+    Email: Lungelihle.Jafta@transnet.net
     """
-    elements.append(Paragraph(references, body_style))
+    elements.append(Paragraph(ref1, body_style))
+    elements.append(Spacer(1, 0.1*inch))
+    
+    # Academic References
+    ref2 = """
+    <b>Academic Reference 1 - University of KwaZulu-Natal</b><br/>
+    <b>Dr. Jules-Raymond Tapamo</b> - Lecturer<br/>
+    Computer Methods Module<br/>
+    University of KwaZulu-Natal<br/>
+    Email: tapamoj@ukzn.ac.za
+    """
+    elements.append(Paragraph(ref2, body_style))
+    elements.append(Spacer(1, 0.1*inch))
+    
+    ref3 = """
+    <b>Academic Reference 2 - University of KwaZulu-Natal</b><br/>
+    <b>Wayne Nelson</b> - Lecturer<br/>
+    Technical Communication Module<br/>
+    University of KwaZulu-Natal<br/>
+    Email: nelsonw@ukzn.ac.za
+    """
+    elements.append(Paragraph(ref3, body_style))
+    elements.append(Spacer(1, 0.1*inch))
+    
+    ref4 = """
+    <b>Academic Reference 3 - University of KwaZulu-Natal</b><br/>
+    <b>Adv. Dr. Ernest Bhero</b> - Lecturer<br/>
+    Electronic Engineering Design Module<br/>
+    University of KwaZulu-Natal<br/>
+    Email: bhero@ukzn.ac.za
+    """
+    elements.append(Paragraph(ref4, body_style))
     
 
     # Build PDF
