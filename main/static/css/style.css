@@ -296,3 +296,99 @@ img {
 .card:hover .gallery-img {
     opacity: 0.9;
 }
+
+/* Dark Mode Styles */
+[data-bs-theme="dark"] {
+    /* Ensure all headings are visible in dark mode */
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: #f8f9fa !important;
+    }
+    
+    /* Ensure all text content is visible */
+    p, li, div, span, label {
+        color: #e9ecef !important;
+    }
+    
+    /* Card text in dark mode */
+    .card {
+        background-color: #212529;
+        border-color: #495057;
+    }
+    
+    .card-body {
+        color: #e9ecef !important;
+    }
+    
+    .card-title,
+    .card-header {
+        color: #f8f9fa !important;
+    }
+    
+    /* List group items */
+    .list-group-item {
+        background-color: #212529;
+        border-color: #495057;
+        color: #e9ecef !important;
+    }
+    
+    /* Lead text and professional summary */
+    .lead {
+        color: #e9ecef !important;
+    }
+    
+    /* Alert boxes */
+    .alert {
+        color: #e9ecef !important;
+    }
+    
+    .alert-info {
+        background-color: #0c5460;
+        border-color: #0c5460;
+    }
+    
+    /* Icons in dark mode */
+    .text-primary {
+        color: #6ea8fe !important;
+    }
+    
+    .text-success {
+        color: #75b798 !important;
+    }
+    
+    .text-info {
+        color: #6edff6 !important;
+    }
+    
+    .text-warning {
+        color: #ffda6a !important;
+    }
+    
+    /* Form labels */
+    .form-label {
+        color: #e9ecef !important;
+    }
+    
+    /* Scrollbar for dark mode */
+    ::-webkit-scrollbar-track {
+        background: #212529;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #495057;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #6c757d;
+    }
+    
+    /* Gallery images background */
+    .gallery-img {
+        background-color: #343a40;
+    }
+    
+    /* Navbar in dark mode */
+    .navbar {
+        box-shadow: 0 2px 4px rgba(255,255,255,.1);
+    }
+}
