@@ -444,7 +444,9 @@ def download_resume(request):
         ('RIGHTPADDING', (0, 0), (0, -1), 20),  # Add more space on right side of first column
         ('RIGHTPADDING', (1, 0), (1, -1), 0),   # No extra padding on second column
         ('TOPPADDING', (0, 0), (-1, -1), 0),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
+        ('BOTTOMPADDING', (0, 0), (0, 0), 12),  # Add space between ref1 and ref2
+        ('BOTTOMPADDING', (1, 0), (1, 0), 12),  # Add space between ref3 and ref4
+        ('BOTTOMPADDING', (0, 1), (1, 1), 0),   # No space after last row
     ]))
     elements.append(references_table)
     
