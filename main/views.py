@@ -184,6 +184,16 @@ def download_resume(request):
         alignment=TA_JUSTIFY
     )
     
+    # Compact style for references (reduced line spacing)
+    reference_style = ParagraphStyle(
+        'ReferenceStyle',
+        parent=styles['Normal'],
+        fontSize=10,
+        spaceAfter=0,
+        alignment=TA_LEFT,
+        leading=12  # Reduced line spacing (default is usually 12-14)
+    )
+    
     # Header
     elements.append(Paragraph("LWAZI KNOWLEDGE GUMEDE", title_style))
     elements.append(Paragraph("ECSA Candidate Engineer | BSc (Honours) Computer Engineering", subtitle_style))
@@ -383,19 +393,20 @@ def download_resume(request):
     • Contributing to technical documentation and knowledge sharing initiatives
     """
     elements.append(Paragraph(certs, body_style))
-    elements.append(Spacer(1, 0.15*inch))
+    elements.append(Spacer(1, 0.08*inch))
     
     # References
     elements.append(Paragraph("REFERENCES", heading_style))
     
-    # Create two-column layout for references
+    # Create two-column layout for references with compact spacing
     ref1 = Paragraph("""
     <b>Professional Reference - Transnet SOC Ltd</b><br/>
     <b>Lungelihle Jafta</b> - Line Manager<br/>
     Engineer-in-Training Position<br/>
     Transnet Rail Infrastructure Manager, Johannesburg<br/>
     Email: Lungelihle.Jafta@transnet.net
-    """, body_style)
+    <br><br>
+    """, reference_style)
     
     ref2 = Paragraph("""
     <b>Academic Reference 1 - University of KwaZulu-Natal</b><br/>
@@ -403,7 +414,7 @@ def download_resume(request):
     Computer Methods Module<br/>
     University of KwaZulu-Natal<br/>
     Email: tapamoj@ukzn.ac.za
-    """, body_style)
+    """, reference_style)
     
     ref3 = Paragraph("""
     <b>Academic Reference 2 - University of KwaZulu-Natal</b><br/>
@@ -411,7 +422,8 @@ def download_resume(request):
     Technical Communication Module<br/>
     University of KwaZulu-Natal<br/>
     Email: nelsonw@ukzn.ac.za
-    """, body_style)
+    <br><br>
+    """, reference_style)
     
     ref4 = Paragraph("""
     <b>Academic Reference 3 - University of KwaZulu-Natal</b><br/>
@@ -419,21 +431,22 @@ def download_resume(request):
     Electronic Engineering Design Module<br/>
     University of KwaZulu-Natal<br/>
     Email: bhero@ukzn.ac.za
-    """, body_style)
+    """, reference_style)
     
-    # Create table with 2 columns for references
+    # Create table with 2 columns for references with gap between columns
     references_data = [
         [ref1, ref3],
         [ref2, ref4]
     ]
     
-    references_table = Table(references_data, colWidths=[3.3*inch, 3.3*inch])
+    references_table = Table(references_data, colWidths=[3.2*inch, 3.2*inch])
     references_table.setStyle(TableStyle([
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
         ('LEFTPADDING', (0, 0), (-1, -1), 0),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 12),
+        ('RIGHTPADDING', (0, 0), (0, -1), 20),  # Add more space on right side of first column
+        ('RIGHTPADDING', (1, 0), (1, -1), 0),   # No extra padding on second column
         ('TOPPADDING', (0, 0), (-1, -1), 0),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
     ]))
     elements.append(references_table)
     
