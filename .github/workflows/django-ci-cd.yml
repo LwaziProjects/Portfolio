@@ -145,8 +145,8 @@ jobs:
         tags: |
           lwazi28/portfolio:latest
           lwazi28/portfolio:${{ github.sha }}
-          ghcr.io/${{ github.repository_owner }}/portfolio:latest
-          ghcr.io/${{ github.repository_owner }}/portfolio:${{ github.sha }}
+          ghcr.io/lwaziprojects/portfolio:latest
+          ghcr.io/lwaziprojects/portfolio:${{ github.sha }}
 
     - name: Output image URLs
       run: |
@@ -157,8 +157,8 @@ jobs:
         echo "- Pull: \`docker pull lwazi28/portfolio:latest\`" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "**GitHub Container Registry:**" >> $GITHUB_STEP_SUMMARY
-        echo "- Latest: https://github.com/${{ github.repository_owner }}/Portfolio/pkgs/container/portfolio" >> $GITHUB_STEP_SUMMARY
-        echo "- Pull: \`docker pull ghcr.io/${{ github.repository_owner }}/portfolio:latest\`" >> $GITHUB_STEP_SUMMARY
+        echo "- Latest: https://github.com/lwaziprojects/Portfolio/pkgs/container/portfolio" >> $GITHUB_STEP_SUMMARY
+        echo "- Pull: \`docker pull ghcr.io/lwaziprojects/portfolio:latest\`" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "**Run locally:**" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
@@ -215,5 +215,5 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "**Quick Links:**" >> $GITHUB_STEP_SUMMARY
         echo "- 🐳 [View on Docker Hub](https://hub.docker.com/r/lwazi28/portfolio)" >> $GITHUB_STEP_SUMMARY
-        echo "- 📦 [View on GitHub Packages](https://github.com/${{ github.repository_owner }}/Portfolio/pkgs/container/portfolio)" >> $GITHUB_STEP_SUMMARY
+        echo "- 📦 [View on GitHub Packages](https://github.com/lwaziprojects/Portfolio/pkgs/container/portfolio)" >> $GITHUB_STEP_SUMMARY
         echo "- 🚀 [Repository](https://github.com/${{ github.repository }})" >> $GITHUB_STEP_SUMMARY
