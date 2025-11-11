@@ -405,7 +405,6 @@ def download_resume(request):
     Engineer-in-Training Position<br/>
     Transnet Rail Infrastructure Manager, Johannesburg<br/>
     Email: Lungelihle.Jafta@transnet.net
-    <br><br>
     """, reference_style)
     
     ref2 = Paragraph("""
@@ -422,7 +421,6 @@ def download_resume(request):
     Technical Communication Module<br/>
     University of KwaZulu-Natal<br/>
     Email: nelsonw@ukzn.ac.za
-    <br><br>
     """, reference_style)
     
     ref4 = Paragraph("""
