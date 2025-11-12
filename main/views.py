@@ -5,6 +5,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from .forms import ContactForm
 from datetime import datetime
+import os
 from reportlab.lib.pagesizes import letter, A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
@@ -37,6 +38,7 @@ def experience(request):
     """Experience page view"""
     # Calculate duration for current Transnet position
     start_date = datetime(2025, 4, 1)  # April 2025
+    end_date = datetime(2027, 3, 31)  # 24 months later (March 2027)
     current_date = datetime.now()
 
     # Calculate months difference
@@ -44,8 +46,52 @@ def experience(request):
         current_date.month - start_date.month
     )
 
-    # Format duration string
-    if months_diff < 1:
+    # Check if we've passed the 24-month mark
+    if current_date >= end_date:
+        duration_text = "24 months"
+        
+        # Send email notification once when position ends
+        notification_flag = os.path.join(settings.BASE_DIR, '.position_end_notification_sent')
+        
+        if not os.path.exists(notification_flag):
+            try:
+                subject = "Engineer-in-Training Position Completed - Update Required"
+                message = f"""
+Hello Lwazi,
+
+Your Engineer-in-Training position at Transnet Rail Infrastructure Manager has reached its 24-month completion date (April 2025 - March 2027).
+
+Please update your portfolio website with your current role and responsibilities.
+
+Current Date: {current_date.strftime('%B %d, %Y')}
+Position Start Date: April 1, 2025
+Position End Date: March 31, 2027
+
+What are you currently working on? Please update:
+1. Experience section with your new position
+2. Projects section with recent work
+3. Skills section if you've acquired new competencies
+
+Best regards,
+Portfolio Website System
+"""
+                send_mail(
+                    subject=subject,
+                    message=message,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=['lwazig28@gmail.com'],
+                    fail_silently=True,
+                )
+                
+                # Create flag file to prevent duplicate emails
+                with open(notification_flag, 'w') as f:
+                    f.write(f"Notification sent on: {current_date.strftime('%Y-%m-%d %H:%M:%S')}")
+                    
+            except Exception as e:
+                print(f"Email notification failed: {str(e)}")
+    
+    # Format duration string for active period
+    elif months_diff < 1:
         duration_text = "Less than 1 month"
     elif months_diff == 1:
         duration_text = "1 month"
