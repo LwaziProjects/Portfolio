@@ -24,6 +24,107 @@ from io import BytesIO
 
 def home(request):
     """Home page view"""
+    # Check PythonAnywhere expiration (3 months from Nov 12, 2025)
+    pythonanywhere_expiry = datetime(2026, 2, 11)  # February 11, 2026
+    current_date = datetime.now()
+    
+    # Send daily reminders starting 5 days before expiry (Feb 6-10)
+    warning_start_date = datetime(2026, 2, 6)  # 5 days before expiry
+    last_reminder_date = datetime(2026, 2, 10)  # Day before expiry
+    
+    notification_flag = os.path.join(settings.BASE_DIR, '.pythonanywhere_expiry_last_sent')
+    
+    # Check if we should send a reminder
+    should_send_email = False
+    last_sent_date = None
+    
+    if os.path.exists(notification_flag):
+        with open(notification_flag, 'r') as f:
+            last_sent_str = f.readline().strip()
+            if last_sent_str:
+                try:
+                    last_sent_date = datetime.strptime(last_sent_str, '%Y-%m-%d')
+                except ValueError:
+                    last_sent_date = None
+    
+    # Send email if:
+    # 1. We're in the warning period (Feb 6-10)
+    # 2. We haven't sent an email today
+    if warning_start_date <= current_date <= last_reminder_date:
+        if last_sent_date is None or last_sent_date.date() != current_date.date():
+            should_send_email = True
+    # Or if it has expired
+    elif current_date >= pythonanywhere_expiry:
+        if last_sent_date is None or last_sent_date.date() != current_date.date():
+            should_send_email = True
+    
+    if should_send_email:
+        try:
+            if current_date >= pythonanywhere_expiry:
+                subject = "🚨 URGENT: PythonAnywhere Hosting EXPIRED"
+                status = "has EXPIRED"
+                action_needed = "Your website is likely OFFLINE. Renew immediately to restore service!"
+                urgency = "CRITICAL"
+            else:
+                days_remaining = (pythonanywhere_expiry - current_date).days
+                if days_remaining == 1:
+                    subject = f"🚨 FINAL WARNING: PythonAnywhere Expires TOMORROW"
+                    urgency = "URGENT"
+                else:
+                    subject = f"⚠️ REMINDER: PythonAnywhere Expires in {days_remaining} Days"
+                    urgency = "IMPORTANT"
+                status = f"will expire in {days_remaining} day{'s' if days_remaining > 1 else ''}"
+                action_needed = "Renew your account to avoid service interruption."
+            
+            message = f"""
+Hello Lwazi,
+
+{urgency} REMINDER - Daily Notification ({current_date.strftime('%B %d, %Y')})
+
+Your PythonAnywhere hosting account {status} on February 11, 2026.
+
+📅 Expiry Date: February 11, 2026
+📅 Today: {current_date.strftime('%B %d, %Y')}
+🌐 Website URL: https://stephusband.pythonanywhere.com
+
+⚠️ ACTION REQUIRED: {action_needed}
+
+Steps to Renew:
+1. Log in to PythonAnywhere (https://www.pythonanywhere.com)
+2. Go to Account → Billing
+3. Renew your hosting plan (Beginner or higher)
+4. Update the expiration date in main/views.py after renewal
+
+After Renewal:
+- Update pythonanywhere_expiry date in views.py
+- Delete .pythonanywhere_expiry_last_sent file to reset notifications
+- Test your website to ensure it's running properly
+
+Don't forget to also update your portfolio with:
+- Recent projects and achievements
+- New skills and technologies learned
+- Updated experience and qualifications
+
+You will receive this reminder daily until February 10, 2026.
+
+Best regards,
+Portfolio Website System
+"""
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=['lwazig28@gmail.com'],
+                fail_silently=True,
+            )
+            
+            # Update flag file with today's date
+            with open(notification_flag, 'w') as f:
+                f.write(current_date.strftime('%Y-%m-%d'))
+                
+        except Exception as e:
+            print(f"PythonAnywhere expiry notification failed: {str(e)}")
+    
     context = {"page_title": "Home", "active_page": "home"}
     return render(request, "main/home.html", context)
 
