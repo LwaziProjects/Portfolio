@@ -297,6 +297,32 @@ img {
     opacity: 0.9;
 }
 
+/* Gradient cards - ensure proper contrast in light mode */
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Only direct text in gradient cards should be white in light mode */
+.bg-gradient > .card-body > h2,
+.bg-gradient > .card-body > p {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Inner white cards should have normal dark text in light mode */
+.bg-gradient .bg-white h5,
+.bg-gradient .bg-white h4,
+.bg-gradient .bg-white p,
+.bg-gradient .bg-white li,
+.bg-gradient .bg-white strong {
+    color: #212529 !important;
+    text-shadow: none;
+}
+
+.bg-gradient .bg-white .text-muted {
+    color: #6c757d !important;
+}
+
 /* Dark Mode Styles */
 [data-bs-theme="dark"] {
     /* Ensure all headings are visible in dark mode with high contrast */
@@ -516,5 +542,57 @@ img {
     
     section.bg-light {
         background-color: #212529 !important;
+    }
+    
+    /* Gradient cards - ensure text is always visible */
+    .bg-gradient,
+    .card.bg-gradient {
+        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    }
+    
+    .bg-gradient h2,
+    .bg-gradient h3,
+    .bg-gradient h4,
+    .bg-gradient h5,
+    .bg-gradient p,
+    .bg-gradient li,
+    .bg-gradient div,
+    .card.bg-gradient h2,
+    .card.bg-gradient h3,
+    .card.bg-gradient h4,
+    .card.bg-gradient h5,
+    .card.bg-gradient p,
+    .card.bg-gradient li,
+    .card.bg-gradient div {
+        color: #ffffff !important;
+    }
+    
+    /* Inner cards within gradient cards - override bg-white in dark mode */
+    .bg-gradient .bg-white,
+    .card.bg-gradient .bg-white {
+        background-color: #2d3748 !important;
+    }
+    
+    .bg-gradient .bg-white h5,
+    .bg-gradient .bg-white h4,
+    .bg-gradient .bg-white p,
+    .bg-gradient .bg-white li,
+    .bg-gradient .bg-white strong,
+    .card.bg-gradient .bg-white h5,
+    .card.bg-gradient .bg-white h4,
+    .card.bg-gradient .bg-white p,
+    .card.bg-gradient .bg-white li,
+    .card.bg-gradient .bg-white strong {
+        color: #f8f9fa !important;
+    }
+    
+    .bg-gradient .bg-white .text-muted,
+    .card.bg-gradient .bg-white .text-muted {
+        color: #cbd5e0 !important;
+    }
+    
+    .bg-gradient .bg-white .text-primary,
+    .card.bg-gradient .bg-white .text-primary {
+        color: #6ea8fe !important;
     }
 }
