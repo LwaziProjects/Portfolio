@@ -206,10 +206,16 @@ def download_resume(request):
         )
     )
 
-    # Contact Information
+    # Contact Information with clickable website link
+    website_link = Paragraph(
+        '<a href="https://stephusband.pythonanywhere.com" color="blue"><u>Portfolio Website</u></a>',
+        body_style
+    )
+    
     contact_info = [
         ["Email:", "lwazig28@gmail.com", "Phone:", "+27 76 935 2103"],
         ["Location:", "Johannesburg, South Africa", "Phone:", "+27 65 711 1226"],
+        ["Website:", website_link, "", ""],
     ]
     contact_table = Table(
         contact_info, colWidths=[1 * inch, 2.2 * inch, 1 * inch, 1.5 * inch]
