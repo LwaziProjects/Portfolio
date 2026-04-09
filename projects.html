@@ -290,21 +290,26 @@
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <h3 class="card-title mb-0"><i class="bi bi-display text-primary"></i> Trunking Highsite Dashboard</h3>
-                                    <span class="badge bg-success">Active</span>
+                                    <div class="d-flex gap-2">
+                                            <span class="badge bg-success">Active</span>
+                                    </div>
                                 </div>
-                                <p class="card-text mb-3"><strong>Problem Statement:</strong> The Network Operation Center (NOC) currently uses multiple separate screens to monitor faults, making it difficult to identify and respond to issues efficiently.</p>
+                                <p class="card-text mb-3"><strong>Problem Statement:</strong> The Network Operation Center (NOC) used multiple separate screens to monitor faults, making it difficult to identify and respond to issues efficiently. Scheduled data ingestion scripts were also failing silently on certain machines, causing stale dashboard data.</p>
                                 <h5 class="h6 fw-bold">Project Involvement:</h5>
                                 <ul class="mb-3">
-                                    <li>Software development for consolidated dashboard view and long outstanding fault tracking</li>
-                                    <li>Asset visualisation in railway network and infrastructure availability monitoring tools</li>
+                                    <li>Software development for a consolidated dashboard view and long outstanding fault tracking</li>
+                                    <li>Asset visualisation across the railway network and infrastructure availability monitoring</li>
+                                    <li>Investigated and resolved data ingestion failures, gaining hands-on understanding of how system architecture, OS environments, and service dependencies interact</li>
+                                    <li>Deployed background data services to ensure continuous, reliable data flow to the dashboard</li>
                                 </ul>
-                                <div class="alert alert-success border-start border-success border-4">
-                                    <strong>Key Achievement:</strong> Successfully consolidated multiple monitoring screens into a single, user-friendly interface.
-                                </div>
+                                <p class="text-muted">Enables NOC and field teams to monitor faults, subscribers, and billing activity from a single interface in real time, reducing response times to network issues and improving visibility across the trunking highsite network.</p>
                                 <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-info">React</span><span class="badge bg-info">Dashboard Design</span>
-                                    <span class="badge bg-info">UI/UX</span><span class="badge bg-info">Fault Monitoring</span>
-                                    <span class="badge bg-info">Asset Management</span>
+                                    <span class="badge bg-info">React</span>
+                                    <span class="badge bg-info">Python</span>
+                                    <span class="badge bg-info">PostgreSQL</span>
+                                    <span class="badge bg-info">Windows Services</span>
+                                    <span class="badge bg-info">Dashboard Design</span>
+                                    <span class="badge bg-info">Fault Monitoring</span>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +356,7 @@
                                     <h3 class="card-title mb-0"><i class="bi bi-clipboard-data text-primary"></i> CAS Dashboard Redesign</h3>
                                     <span class="badge bg-success">Active</span>
                                 </div>
-                                <p class="card-text mb-3"><strong>Project Overview:</strong> Scraping and redesigning the Condition Assessment System (CAS) dashboard with integration to PostgreSQL database for enhanced data management and analytics.</p>
+                                <p class="card-text mb-3"><strong>Project Overview:</strong> Scraping and redesigning the CAS dashboard with integration to PostgreSQL database for enhanced data management and analytics.</p>
                                 <h5 class="h6 fw-bold">Project Involvement:</h5>
                                 <ul class="mb-3">
                                     <li>Dashboard redesign and modernisation with data scraping from legacy CAS system</li>
@@ -364,7 +369,73 @@
                             </div>
                         </div>
 
-                        <!-- Prof Project 6: Power BI Data Visualizations (Transnet Engineering) -->
+                        <!-- Prof Project 6: Train Movement Graph Optimization -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-diagram-3 text-primary"></i> Train Movement Graph Optimization</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Problem:</strong> An internal rail monitoring system displayed all CTC sections in a single undifferentiated view, making per-section analysis impractical. Historical movement data was also unavailable for trend analysis and reporting.</p>
+                                <h5 class="h6 fw-bold">Project Involvement:</h5>
+                                <ul class="mb-3">
+                                    <li>Reviewed and understood the existing sequencing logic in the legacy codebase</li>
+                                    <li>Rewrote the logic to support segmented, per-section graph views</li>
+                                    <li>Designed and integrated a dual-database architecture (real-time + historical archive)</li>
+                                    <li>Implemented an intelligent caching layer to reduce database load</li>
+                                    <li>Built a background processing worker for export functionality without blocking the UI</li>
+                                    <li>Developed a historical data overlay for side-by-side comparison with live data</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Key Challenges:</h5>
+                                <ul class="mb-3">
+                                    <li>Processing large date ranges without memory exhaustion (chunked approach)</li>
+                                    <li>Isolating real-time and historical queries without degrading performance</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">PHP</span>
+                                    <span class="badge bg-info">PostgreSQL</span>
+                                    <span class="badge bg-info">Highcharts</span>
+                                    <span class="badge bg-info">Caching</span>
+                                    <span class="badge bg-info">CLI Worker</span>
+                                    <span class="badge bg-info">Dual-DB Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 7: RailBAM Calibration -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-speaker text-primary"></i> RailBAM Calibration</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Background:</strong> RailBAM provides early, automated detection of bearing and wheel defects on passing trains using high-frequency acoustic monitoring. The system detects Running Surface (RS), Looseness/Fretting (LF), and Wheel Flat (WHLFLT) faults. Periodic calibration is required to maintain detection accuracy.</p>
+                                <h5 class="h6 fw-bold">Project Involvement:</h5>
+                                <ul class="mb-3">
+                                    <li>Participated in physical calibration of trackside acoustic cabinets and wayside hut hardware</li>
+                                    <li>Configured speaker set-up points and adjusted acoustic sensitivity thresholds</li>
+                                    <li>Used RailBAM Wayside Software for data acquisition, analysis, and calibration validation</li>
+                                    <li>Worked with Process Monitor for session control and fault handling during calibration</li>
+                                    <li>Observed RailBAM Trending Database output to confirm correct sensor performance post-calibration</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Key Challenges:</h5>
+                                <ul class="mb-3">
+                                    <li>Detecting faint acoustic fault signatures in a high-noise trackside environment</li>
+                                    <li>Synchronising acoustic, speed, and tag data for accurate fault classification</li>
+                                    <li>Handling harsh environmental conditions during outdoor calibration work</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">Acoustic Monitoring</span>
+                                    <span class="badge bg-info">RailBAM Wayside Software</span>
+                                    <span class="badge bg-info">Process Monitor</span>
+                                    <span class="badge bg-info">Sensor Calibration</span>
+                                    <span class="badge bg-info">Fault Detection</span>
+                                    <span class="badge bg-info">Field Engineering</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 8: Power BI Data Visualizations (Transnet Engineering) -->
                         <div class="card mb-4 border-0 shadow-sm">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
