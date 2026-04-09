@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Lwazi Knowledge Gumede Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💼</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="main/static/css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-code-square"></i> LKG Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="qualifications.html">Qualifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.html"><i class="bi bi-download"></i> Resume</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" id="theme-toggle" aria-label="Toggle theme">
+                            <i class="bi bi-moon-stars" id="theme-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="py-5">
+            <div class="container">
+
+                <!-- Academic Projects Header -->
+                <div class="row mb-5">
+                    <div class="col-lg-10 mx-auto text-center">
+                        <h1 class="display-4 mb-3">Academic Projects</h1>
+                        <p class="lead text-muted">Innovative solutions and engineering designs</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-10 mx-auto">
+
+                        <!-- Project 1: IoT Smart Meter System -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-lightning-charge text-warning"></i> IoT Smart Meter System</h3>
+                                    <span class="badge bg-success">Feb - May 2023</span>
+                                </div>
+                                <p class="card-text mb-3">Designed and implemented an IoT-based smart metering system for real-time energy consumption monitoring and management, integrating hardware sensors with cloud-based analytics.</p>
+                                <h5 class="h6 fw-bold">Key Features:</h5>
+                                <ul class="mb-3">
+                                    <li>Real-time energy consumption monitoring with wireless data transmission to cloud server</li>
+                                    <li>Web-based dashboard for data visualization and historical data analysis</li>
+                                    <li>Alert system for abnormal consumption patterns and data export for billing</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Technologies Used:</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-danger">ESP32</span><span class="badge bg-danger">C++</span>
+                                    <span class="badge bg-danger">PHP</span><span class="badge bg-danger">MySQL</span>
+                                    <span class="badge bg-danger">JavaScript</span><span class="badge bg-danger">Chart.js</span>
+                                    <span class="badge bg-danger">WiFi/HTTP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: Blockchain Invoice Discounting Platform -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-coin text-success"></i> Blockchain Invoice Discounting Platform</h3>
+                                    <span class="badge bg-warning text-dark">Jul - Nov 2023</span>
+                                </div>
+                                <p class="card-text mb-3">Developed a decentralized platform for invoice discounting using blockchain technology, enabling secure, transparent, and efficient financing solutions for businesses.</p>
+                                <h5 class="h6 fw-bold">Key Features:</h5>
+                                <ul class="mb-3">
+                                    <li>Smart contract-based invoice tokenization with automated payment settlements</li>
+                                    <li>Decentralized financing marketplace with transparent transaction history on blockchain</li>
+                                    <li>Multi-party verification system with real-time interest calculation and bidding</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Technologies Used:</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary">Python</span><span class="badge bg-primary">Solidity</span>
+                                    <span class="badge bg-primary">React</span><span class="badge bg-primary">Web3.js</span>
+                                    <span class="badge bg-primary">Ethereum</span><span class="badge bg-primary">Truffle</span>
+                                    <span class="badge bg-primary">Node.js</span><span class="badge bg-primary">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: Authentication and Key Management System -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-shield-lock text-primary"></i> Authentication and Key Management System</h3>
+                                    <span class="badge bg-primary">Jul - Dec 2021</span>
+                                </div>
+                                <p class="card-text mb-3">Developed a comprehensive security system for user authentication and cryptographic key management, implementing industry-standard security practices and encryption protocols.</p>
+                                <h5 class="h6 fw-bold">Key Features:</h5>
+                                <ul class="mb-3">
+                                    <li>Secure user authentication with password hashing, salting, and session management</li>
+                                    <li>Cryptographic key generation, storage, and rotation with role-based access control (RBAC)</li>
+                                    <li>Audit logging for security events and multi-factor authentication support</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Technologies Used:</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">PHP</span><span class="badge bg-info">MySQL</span>
+                                    <span class="badge bg-info">HTML/CSS</span><span class="badge bg-info">JavaScript</span>
+                                    <span class="badge bg-info">jQuery</span><span class="badge bg-info">Bootstrap</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4: PIC16 Microcontroller Light Chaser Reaction Game -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-lightbulb text-warning"></i> PIC16 Microcontroller Light Chaser Reaction Game</h3>
+                                    <span class="badge bg-warning text-dark">Oct - Nov 2023</span>
+                                </div>
+                                <p class="card-text mb-3">Built a reaction speed testing game using PIC16 microcontroller and assembly language programming. The system controls 8 LEDs in various patterns and measures player reaction time with precise timing algorithms.</p>
+                                <h5 class="h6 fw-bold">Technical Implementation:</h5>
+                                <ul class="mb-3">
+                                    <li>Assembly language programming for PIC16 with LED control through GPIO pin manipulation</li>
+                                    <li>Button input reading with debouncing logic and precise timing control for LED sequences</li>
+                                    <li>Random number generation for game variation and state machine implementation</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Technologies Used:</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary">PIC16 Microcontroller</span><span class="badge bg-primary">Assembly Language</span>
+                                    <span class="badge bg-primary">MPLAB X IDE</span><span class="badge bg-primary">GPIO Control</span>
+                                    <span class="badge bg-primary">Embedded Systems</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5: Automatic Temperature-Controlled Fan System -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-fan text-primary"></i> Automatic Temperature-Controlled Fan System</h3>
+                                    <span class="badge bg-primary">Mar - May 2023</span>
+                                </div>
+                                <p class="card-text mb-3">Designed and implemented the Motor Driving Unit for an automatic fan speed control system that adjusts rotational speed based on ambient temperature. The system integrates four subsystems for comprehensive temperature-based ventilation control.</p>
+                                <h5 class="h6 fw-bold">Motor Drive Implementation:</h5>
+                                <ul class="mb-3">
+                                    <li>Designed drive circuits for AC induction motor control using frequency-based speed control</li>
+                                    <li>Utilized rotating magnetic field (RMF) principles for speed regulation</li>
+                                    <li>Achieved automatic speed adjustment based on ambient temperature readings</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Technologies Used:</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-success">AC Motor Control</span><span class="badge bg-success">Circuit Design</span>
+                                    <span class="badge bg-success">Power Electronics</span><span class="badge bg-success">Temperature Sensors</span>
+                                    <span class="badge bg-success">Motor Drives</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6: Image Compression Using Wavelet Transform and Huffman Coding -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-file-image text-primary"></i> Image Compression Using Wavelet Transform and Huffman Coding</h3>
+                                    <span class="badge bg-primary">Apr - May 2024</span>
+                                </div>
+                                <p class="card-text mb-3">Implemented a comprehensive image compression system using Haar Wavelet Transform and Huffman encoding, with multi-level wavelet decomposition, quantization, and encoding/decoding operations while analysing time and space complexity.</p>
+                                <h5 class="h6 fw-bold">Technical Implementation:</h5>
+                                <ul class="mb-3">
+                                    <li>Designed algorithms for LL, LH, HL, and HH coefficient computation with priority queues for Huffman trees</li>
+                                    <li>Analysed time complexity O(n²log n) and space complexity O(n²)</li>
+                                    <li>Computed MSE, PSNR, Compression Ratio, and BPP metrics for performance evaluation</li>
+                                </ul>
+                                <h5 class="h6 fw-bold">Technologies Used:</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">Python</span><span class="badge bg-info">NumPy</span>
+                                    <span class="badge bg-info">Algorithms</span><span class="badge bg-info">Data Structures</span>
+                                    <span class="badge bg-info">Priority Queues</span><span class="badge bg-info">Image Processing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 7: Largest Rectangular Area Search Algorithm -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-grid-3x3 text-success"></i> Largest Rectangular Area Search Algorithm</h3>
+                                    <span class="badge bg-success">Mar - Apr 2024</span>
+                                </div>
+                                <p class="card-text mb-3">Developed and optimised algorithms to find the largest rectangular subset filled with 1's in a binary matrix. Implemented both naive and efficient approaches, comparing their time complexity and performance on real datasets.</p>
+                                <ul class="mb-3">
+                                    <li><strong>NaiveRectSearch:</strong> Exhaustive search algorithm with O(n³ × m³) complexity</li>
+                                    <li><strong>EffectRectSearch:</strong> Optimised algorithm with O(m × n²) complexity</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-warning text-dark">Python</span><span class="badge bg-warning text-dark">Algorithm Design</span>
+                                    <span class="badge bg-warning text-dark">Complexity Analysis</span><span class="badge bg-warning text-dark">Data Structures</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 8: Java Calculator Application -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-calculator text-info"></i> Java Calculator Application with GUI</h3>
+                                    <span class="badge bg-info">Aug - Nov 2024</span>
+                                </div>
+                                <p class="card-text mb-3">Developed a comprehensive calculator application in Java, implementing object-oriented programming principles, graphical user interface, and advanced string manipulation for expression parsing and evaluation.</p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-danger">Java</span><span class="badge bg-danger">Swing/AWT</span>
+                                    <span class="badge bg-danger">OOP</span><span class="badge bg-danger">GUI Design</span>
+                                    <span class="badge bg-danger">Exception Handling</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 9: Art Gallery Intruder Alarm System -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-shield-exclamation text-danger"></i> Art Gallery Intruder Alarm System</h3>
+                                    <span class="badge bg-danger">2023</span>
+                                </div>
+                                <p class="card-text mb-3">Designed and implemented a comprehensive alarm system for an art gallery using software engineering principles, following the complete software development lifecycle from requirements analysis to testing with full UML documentation.</p>
+                                <h5 class="h6 fw-bold">Software Engineering Deliverables:</h5>
+                                <ul class="mb-3">
+                                    <li>Domain Model, Use-Case Model, and Analysis Model (boundary, entity, and control classes)</li>
+                                    <li>Sequence Diagrams, Class Analysis, and full C++ implementation</li>
+                                    <li>Comprehensive black-box acceptance testing</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">C++</span><span class="badge bg-info">UML</span>
+                                    <span class="badge bg-info">Object-Oriented Design</span><span class="badge bg-info">State Machines</span>
+                                    <span class="badge bg-info">Software Testing</span><span class="badge bg-info">Requirements Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Professional Projects Header -->
+                <div class="row mb-5 mt-5">
+                    <div class="col-lg-10 mx-auto text-center">
+                        <h1 class="display-4 mb-3">Professional Projects</h1>
+                        <p class="lead text-muted">Industry solutions at Transnet Engineering</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-10 mx-auto">
+
+                        <!-- Prof Project 1: Rail Monitor Dashboard -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-speedometer2 text-primary"></i> Rail Monitor Dashboard</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Problem Statement:</strong> Need to view substation availability in a consolidated and current view for efficient monitoring of railway infrastructure.</p>
+                                <h5 class="h6 fw-bold">Project Involvement:</h5>
+                                <ul class="mb-3">
+                                    <li>Back-end logic development for substation breaker logic implementation</li>
+                                    <li>Front-end development of substation availability visualization</li>
+                                    <li>Integration of switching logic information</li>
+                                </ul>
+                                <p class="text-muted">Provides critical real-time monitoring of railway substation infrastructure, enabling rapid response to power distribution issues and minimising downtime in rail operations.</p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">React</span><span class="badge bg-info">Backend Development</span>
+                                    <span class="badge bg-info">Real-time Monitoring</span><span class="badge bg-info">Dashboard UI</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 2: Trunking Highsite Dashboard -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-display text-primary"></i> Trunking Highsite Dashboard</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Problem Statement:</strong> The Network Operation Center (NOC) currently uses multiple separate screens to monitor faults, making it difficult to identify and respond to issues efficiently.</p>
+                                <h5 class="h6 fw-bold">Project Involvement:</h5>
+                                <ul class="mb-3">
+                                    <li>Software development for consolidated dashboard view and long outstanding fault tracking</li>
+                                    <li>Asset visualisation in railway network and infrastructure availability monitoring tools</li>
+                                </ul>
+                                <div class="alert alert-success border-start border-success border-4">
+                                    <strong>Key Achievement:</strong> Successfully consolidated multiple monitoring screens into a single, user-friendly interface.
+                                </div>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">React</span><span class="badge bg-info">Dashboard Design</span>
+                                    <span class="badge bg-info">UI/UX</span><span class="badge bg-info">Fault Monitoring</span>
+                                    <span class="badge bg-info">Asset Management</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 3: VIS Master -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-train-front text-primary"></i> VIS Master - Vehicle Identification System</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Overview:</strong> Monitors the health and communication status of Vehicle Identification Systems across the railway network, providing real-time insights into system operational status.</p>
+                                <h5 class="h6 fw-bold">Project Involvement:</h5>
+                                <ul class="mb-3">
+                                    <li>System health monitoring implementation and communication diagnostics development</li>
+                                    <li>Status tracking for VIS infrastructure across the rail network</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">System Monitoring</span><span class="badge bg-info">Communication Diagnostics</span>
+                                    <span class="badge bg-info">Health Tracking</span><span class="badge bg-info">Vehicle Identification</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 4: Procurement for R&D -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-cart-check text-primary"></i> Procurement for R&amp;D</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Overview:</strong> Comprehensive procurement project that builds fundamental understanding of acquisition processes in railway engineering research and development.</p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">Procurement Process</span><span class="badge bg-info">R&amp;D Operations</span>
+                                    <span class="badge bg-info">Resource Management</span><span class="badge bg-info">Vendor Relations</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 5: CAS Dashboard Redesign -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-clipboard-data text-primary"></i> CAS Dashboard Redesign</h3>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <p class="card-text mb-3"><strong>Project Overview:</strong> Scraping and redesigning the Condition Assessment System (CAS) dashboard with integration to PostgreSQL database for enhanced data management and analytics.</p>
+                                <h5 class="h6 fw-bold">Project Involvement:</h5>
+                                <ul class="mb-3">
+                                    <li>Dashboard redesign and modernisation with data scraping from legacy CAS system</li>
+                                    <li>PostgreSQL database integration and data pipeline development</li>
+                                </ul>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-info">PostgreSQL</span><span class="badge bg-info">Dashboard Design</span>
+                                    <span class="badge bg-info">Data Pipeline</span><span class="badge bg-info">Legacy Migration</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prof Project 6: Power BI Data Visualizations (Transnet Engineering) -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="card-title mb-0"><i class="bi bi-bar-chart-line text-primary"></i> Power BI Data Visualizations</h3>
+                                    <span class="badge bg-warning text-dark">Jan - Mar 2023</span>
+                                </div>
+                                <p class="card-text mb-3">Developed comprehensive Power BI dashboards and automated data sharing solutions to Google Sheets during the Transnet Engineering vacation internship, enabling real-time data access and improving team collaboration.</p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-success">Power BI</span><span class="badge bg-success">Google Sheets</span>
+                                    <span class="badge bg-success">Data Automation</span><span class="badge bg-success">Excel</span>
+                                    <span class="badge bg-success">Python</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">&copy; 2025 Lwazi Knowledge Gumede. All rights reserved.</p>
+            <p class="mb-0">
+                <a href="mailto:lwazig28@gmail.com" class="text-white me-3"><i class="bi bi-envelope"></i> lwazig28@gmail.com</a>
+                <a href="tel:+27769352103" class="text-white"><i class="bi bi-phone"></i> +27 76 935 2103</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const getStoredTheme = () => localStorage.getItem('theme') || 'light';
+        const setStoredTheme = theme => localStorage.setItem('theme', theme);
+        const setTheme = theme => {
+            document.documentElement.setAttribute('data-bs-theme', theme);
+            const icon = document.getElementById('theme-icon');
+            if (icon) icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars';
+        };
+        setTheme(getStoredTheme());
+        window.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('theme-toggle');
+            if (btn) btn.addEventListener('click', () => {
+                const next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                setStoredTheme(next); setTheme(next);
+            });
+        });
+    </script>
+</body>
+</html>
