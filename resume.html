@@ -3,25 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Lwazi Knowledge Gumede</title>
+    <title>CV | Lwazi Knowledge Gumede | ECSA Candidate Engineer</title>
+    <meta name="description" content="CV of Lwazi Knowledge Gumede, ECSA Candidate Engineer, BSc Honours Computer Engineering, full-stack developer, rail infrastructure, Python, React, PostgreSQL">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💼</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="main/static/css/style.css">
     <style>
+        /* ── Screen styles ──────────────────────────────── */
+        body { font-family: Arial, Helvetica, sans-serif; }
+        .cv-wrap { max-width: 820px; margin: 0 auto; }
+        .cv-header { background: linear-gradient(135deg, #1a3a5c 0%, #2563eb 100%); color: #fff; padding: 1.4rem 1.8rem; border-radius: 6px 6px 0 0; }
+        .cv-header h1 { font-size: 1.6rem; font-weight: 700; margin: 0 0 2px; letter-spacing: .5px; }
+        .cv-header .subtitle { font-size: .9rem; opacity: .92; margin: 0 0 6px; }
+        .cv-header .contact-line { font-size: .78rem; opacity: .85; }
+        .cv-header a { color: #a8d4ff; text-decoration: none; }
+        section.cv-section { padding: .65rem 1.8rem; border-bottom: 1px solid #e5e7eb; }
+        section.cv-section:last-child { border-bottom: none; }
+        h2.cv-heading { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #1a3a5c; border-bottom: 2px solid #2563eb; padding-bottom: 2px; margin: 0 0 .5rem; }
+        .job-title { font-size: .88rem; font-weight: 700; margin: 0; }
+        .job-meta { font-size: .78rem; color: #555; margin: 0 0 3px; }
+        ul.cv-list { margin: 2px 0 6px 0; padding-left: 1.1rem; }
+        ul.cv-list li { font-size: .79rem; margin-bottom: 1px; line-height: 1.4; }
+        .skills-row { font-size: .79rem; margin-bottom: 2px; }
+        .skills-row strong { color: #1a3a5c; }
+        .cv-body { border: 1px solid #d1d5db; border-top: none; border-radius: 0 0 6px 6px; }
+
+        /* ── Print styles ──────────────────────────────── */
         @media print {
+            @page { margin: 8mm 10mm; size: A4 portrait; }
             .no-print { display: none !important; }
-            body { font-size: 11pt; }
-            .container { max-width: 100%; }
-            .card { border: 1px solid #ccc !important; box-shadow: none !important; break-inside: avoid; }
-            a { color: inherit !important; }
+            body { font-size: 8.5pt; font-family: Arial, Helvetica, sans-serif; color: #000; background: #fff; }
+            .cv-wrap { max-width: 100%; margin: 0; }
+            .cv-header { background: #1a3a5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 6pt 10pt; border-radius: 0; }
+            .cv-header h1 { font-size: 14pt; }
+            .cv-header .subtitle { font-size: 8pt; }
+            .cv-header .contact-line { font-size: 7pt; }
+            .cv-header a { color: #a8d4ff !important; }
+            section.cv-section { padding: 4pt 10pt; border-bottom: 1px solid #ccc; }
+            h2.cv-heading { font-size: 7pt; color: #1a3a5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; border-bottom: 1pt solid #2563eb; margin-bottom: 3pt; }
+            .job-title { font-size: 8.5pt; }
+            .job-meta { font-size: 7.5pt; }
+            ul.cv-list li, .skills-row { font-size: 7.5pt; line-height: 1.35; }
+            .cv-body { border: none; }
+            a { color: #000 !important; text-decoration: none; }
         }
-        .resume-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
     </style>
 </head>
 <body>
 
-    <!-- Navigation (hidden on print) -->
+    <!-- Nav (hidden on print) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top no-print">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-code-square"></i> LKG Portfolio</a>
@@ -31,23 +62,219 @@
         </div>
     </nav>
 
-    <!-- Print Button (hidden on print) -->
-    <div class="container my-3 no-print">
-        <div class="d-flex gap-2">
+    <!-- Print button (hidden on print) -->
+    <div class="container my-3 no-print" style="max-width:820px;">
+        <div class="d-flex gap-2 align-items-center">
             <button onclick="window.print()" class="btn btn-primary">
-                <i class="bi bi-printer"></i> Print / Save as PDF
+                <i class="bi bi-file-earmark-pdf"></i> Download / Save as PDF
             </button>
             <a href="index.html" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-left"></i> Back to Portfolio
+                <i class="bi bi-arrow-left"></i> Portfolio
             </a>
         </div>
-        <p class="text-muted small mt-2">
-            <i class="bi bi-info-circle"></i> To save as PDF: click "Print / Save as PDF" then select "Save as PDF" as the printer destination.
+        <p class="text-muted small mt-2 mb-0">
+            <i class="bi bi-info-circle"></i> Click "Download / Save as PDF", then choose "Save as PDF" as the destination. Best printed on A4.
         </p>
     </div>
 
-    <main>
-        <div class="container my-4" style="max-width: 900px;">
+    <main class="container my-3 no-print-margin" style="max-width:820px;">
+    <div class="cv-wrap">
+
+        <!-- ── HEADER ──────────────────────────────────────── -->
+        <div class="cv-header">
+            <h1>LWAZI KNOWLEDGE GUMEDE</h1>
+            <p class="subtitle">ECSA Candidate Engineer &nbsp;|&nbsp; BSc (Honours) Computer Engineering &nbsp;|&nbsp; Full-Stack Developer</p>
+            <p class="contact-line mb-0">
+                lwazig28@gmail.com &nbsp;&bull;&nbsp;
+                +27 76 935 2103 &nbsp;/&nbsp; +27 65 711 1226 &nbsp;&bull;&nbsp;
+                F361 Sibusiso Mdakane Rd, UMlazi, South Africa &nbsp;&bull;&nbsp;
+                <a href="https://lwaziprojects.github.io/Portfolio/">lwaziprojects.github.io/Portfolio</a>
+            </p>
+        </div>
+
+        <div class="cv-body">
+
+            <!-- ── PROFESSIONAL SUMMARY ──────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">Professional Summary</h2>
+                <p style="font-size:.8rem; margin:0; line-height:1.45;">
+                    Professionally registered ECSA Candidate Engineer with a BSc (Honours) in Computer Engineering and proven experience delivering production-ready software systems in the rail transport industry. Specialises in full-stack web development, system automation, IoT, and embedded systems. Proficient in Python, JavaScript, React, Django, PostgreSQL, data handling, and RESTful API development. Registered with the Engineering Council of South Africa (ECSA) and committed to professional engineering standards.
+                </p>
+            </section>
+
+            <!-- ── WORK EXPERIENCE ───────────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">Work Experience</h2>
+
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Engineer-in-Training</span>
+                        <span class="job-meta">April 2025 – Present</span>
+                    </div>
+                    <p class="job-meta">Transnet SOC Ltd (Rail Infrastructure Manager) | Johannesburg</p>
+                    <ul class="cv-list">
+                        <li>Developed a Rail Monitor Dashboard using React, Python, Django, PostgreSQL, and WebSocket for real-time train tracking; improved operational efficiency and provided actionable insights to rail traffic controllers.</li>
+                        <li>Built a Trunking Highsite Dashboard in JavaScript, PHP, Flask, and PostgreSQL to monitor communication infrastructure across the rail network, including site status tracking and maintenance scheduling.</li>
+                        <li>Designed and implemented VIS Master, an automated vehicle identification system using Python and Django REST Framework, integrating train detection and generating automated compliance reports.</li>
+                        <li>Redesigned the Condition Assessment System (CAS) Dashboard using React, TypeScript, D3.js, and Node.js; enhanced data visualisation and real-time alerts, significantly reducing incident response time.</li>
+                        <li>Managed procurement workflows for R&amp;D initiatives to improve cross-department collaboration and resource planning.</li>
+                        <li>Created a Train Movement Segmenting tool for route optimisation and operational efficiency analysis.</li>
+                        <li>Participated in CAS technical reviews, testing and commissioning of new CAS technology, derailment investigations, configuration management, and field support to TRIM Technical Office and corridor depots.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Technical Communication Tutor</span>
+                        <span class="job-meta">February 2025 – May 2025</span>
+                    </div>
+                    <p class="job-meta">University of KwaZulu-Natal | Module: ENCH1TC</p>
+                    <ul class="cv-list">
+                        <li>Facilitated tutorials on technical writing, professional documentation, and presentation skills for first-year engineering students.</li>
+                        <li>Coached students in engineering report writing, achieving positive feedback for clarity and supportive teaching methods.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Computer Methods Demonstrator</span>
+                        <span class="job-meta">June 2024 – November 2024</span>
+                    </div>
+                    <p class="job-meta">University of KwaZulu-Natal | Supervisor: Dr. Jules-Raymond Tapamo</p>
+                    <ul class="cv-list">
+                        <li>Conducted practical lab sessions on programming, numerical analysis, and algorithm implementation.</li>
+                        <li>Provided one-on-one tutoring and developed supplementary coding materials for students.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Electronic Engineering Design Tutor &amp; Electrical Principles Demonstrator</span>
+                        <span class="job-meta">February 2024 – May 2024</span>
+                    </div>
+                    <p class="job-meta">University of KwaZulu-Natal | Package Position (3 modules)</p>
+                    <ul class="cv-list">
+                        <li>Demonstrated circuit design, field theory (ENEL2FT), and electronic engineering (ENEL2EC) labs for second-year students.</li>
+                        <li>Mentored students in design projects and provided feedback on design reports and presentations.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-0">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Vacation Student (Engineering Internship)</span>
+                        <span class="job-meta">January 2023 – March 2023</span>
+                    </div>
+                    <p class="job-meta">Transnet Engineering | Durban</p>
+                    <ul class="cv-list">
+                        <li>Developed Power BI dashboards for engineering data visualisation and operational decision support.</li>
+                        <li>Implemented automated data sharing pipelines to Google Sheets using Python scripting.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ── EDUCATION ─────────────────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">Education</h2>
+
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">BSc (Honours) in Computer Engineering</span>
+                        <span class="job-meta">2019 – June 2024</span>
+                    </div>
+                    <p class="job-meta mb-1">University of KwaZulu-Natal</p>
+                    <p style="font-size:.78rem; margin:0;">Focus areas: Embedded Systems, IoT, Software Development, Digital Signal Processing, Control Systems, Data Structures and Algorithms, Database Systems. Key projects: IoT Smart Meter System, Blockchain Invoice Verification, Multi-Factor Authentication System, PIC16 Embedded Game System, JPEG Image Compression.</p>
+                </div>
+
+                <div class="mb-0">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">National Senior Certificate (NSC / Matric)</span>
+                        <span class="job-meta">2018</span>
+                    </div>
+                    <p class="job-meta mb-0">Nombuso High School | Bachelor's Degree Pass | Mathematics, Physical Sciences, Life Sciences</p>
+                </div>
+            </section>
+
+            <!-- ── SKILLS ─────────────────────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">Skills</h2>
+                <div class="skills-row"><strong>Programming Languages:</strong> Python, C++, Java, JavaScript, TypeScript, PHP, SQL, Solidity, Bash, Assembly Language, MATLAB</div>
+                <div class="skills-row"><strong>Web Development:</strong> React, Django, Flask, Node.js, Next.js, Express.js, HTML5, CSS3, Bootstrap, RESTful APIs, WebSocket, D3.js</div>
+                <div class="skills-row"><strong>Databases:</strong> MySQL, PostgreSQL, SQLite, MongoDB, Database Design and Optimisation</div>
+                <div class="skills-row"><strong>Tools and Technologies:</strong> Git, GitHub, Docker, Linux, Visual Studio Code, Power BI, Arduino, Microcontrollers, Postman</div>
+                <div class="skills-row"><strong>Engineering Tools:</strong> MATLAB, Simulink, Proteus, Altium Designer, Oscilloscope</div>
+                <div class="skills-row"><strong>Specialised Skills:</strong> IoT Systems, Blockchain Development, Embedded Systems, System Automation, Microcontroller Programming, CI/CD Pipelines</div>
+                <div class="skills-row"><strong>Methodologies:</strong> Agile, Scrum, Software Testing and Quality Assurance, Technical Documentation</div>
+                <div class="skills-row"><strong>Soft Skills:</strong> Problem-solving, Teamwork, Communication, Fast-paced environment adaptability, Research, Safety-conscious, Physical work capability</div>
+            </section>
+
+            <!-- ── CERTIFICATIONS ─────────────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">Certifications and Professional Registration</h2>
+                <ul class="cv-list mb-0">
+                    <li>ECSA Candidate Engineer Registration (Active) – Engineering Council of South Africa</li>
+                    <li>Git and GitHub Version Control – Advanced Workflows</li>
+                    <li>Agile and Scrum Development Methodologies</li>
+                    <li>Database Management and Optimisation</li>
+                    <li>Software Testing and Quality Assurance</li>
+                    <li>RESTful API Design and Development</li>
+                </ul>
+            </section>
+
+            <!-- ── VOLUNTEER WORK ──────────────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">Volunteer Work</h2>
+
+                <div class="mb-1">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Student Mentor and Peer Support Volunteer</span>
+                        <span class="job-meta">2022 – 2024</span>
+                    </div>
+                    <p class="job-meta mb-0">University of KwaZulu-Natal</p>
+                    <ul class="cv-list">
+                        <li>Voluntarily assisted fellow engineering students with coursework, programming assignments, and exam preparation outside formal tutoring roles.</li>
+                        <li>Organised informal study groups and peer learning sessions to foster a collaborative academic environment.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-0">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <span class="job-title">Community STEM Outreach Volunteer</span>
+                        <span class="job-meta">2019 – Ongoing</span>
+                    </div>
+                    <p class="job-meta mb-0">KwaZulu-Natal Community Initiatives</p>
+                    <ul class="cv-list">
+                        <li>Delivered workshops and demonstrations to inspire interest in engineering careers among high school learners from under-resourced schools.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ── REFERENCES ─────────────────────────────────── -->
+            <section class="cv-section">
+                <h2 class="cv-heading">References</h2>
+                <div class="skills-row"><strong>Lungelihle Jafta</strong> – Line Manager, Transnet SOC Ltd | Lungelihle.Jafta@transnet.net</div>
+                <div class="skills-row"><strong>Dr. Jules-Raymond Tapamo</strong> – Lecturer, UKZN (Computer Methods) | tapamoj@ukzn.ac.za</div>
+                <div class="skills-row"><strong>Wayne Nelson</strong> – Lecturer, UKZN (Technical Communication) | nelsonw@ukzn.ac.za</div>
+                <div class="skills-row mb-0"><strong>Adv. Dr. Ernest Bhero</strong> – Lecturer, UKZN (Electronic Engineering Design) | bhero@ukzn.ac.za</div>
+            </section>
+
+        </div><!-- /.cv-body -->
+    </div><!-- /.cv-wrap -->
+    </main>
+
+    <div class="container my-3 no-print" style="max-width:820px;">
+        <button onclick="window.print()" class="btn btn-primary">
+            <i class="bi bi-file-earmark-pdf"></i> Download / Save as PDF
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const getStoredTheme = () => localStorage.getItem('theme') || 'light';
+        const setTheme = theme => document.documentElement.setAttribute('data-bs-theme', theme);
+        setTheme(getStoredTheme());
+    </script>
+</body>
+</html>
 
             <!-- Header -->
             <div class="resume-header text-white p-4 rounded mb-4">
