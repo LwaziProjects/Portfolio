@@ -115,7 +115,7 @@
                 <div class="mb-2">
                     <div class="d-flex justify-content-between align-items-baseline">
                         <span class="job-title">Engineer-in-Training</span>
-                        <span class="job-meta">April 2025 – Present</span>
+                        <span class="job-meta">April 2025 – <span class="eit-end-date">Present</span></span>
                     </div>
                     <p class="job-meta">Transnet SOC Ltd (Rail Infrastructure Manager) | Johannesburg</p>
                     <ul class="cv-list">
@@ -226,6 +226,12 @@
         const getStoredTheme = () => localStorage.getItem('theme') || 'light';
         const setTheme = theme => document.documentElement.setAttribute('data-bs-theme', theme);
         setTheme(getStoredTheme());
+    </script>
+    <script>
+        (function () {
+            var label = new Date() >= new Date('2027-04-01') ? 'March 2027' : 'Present';
+            document.querySelectorAll('.eit-end-date').forEach(function (el) { el.textContent = label; });
+        })();
     </script>
 </body>
 </html>

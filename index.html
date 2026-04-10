@@ -120,7 +120,7 @@
                                     <i class="bi bi-briefcase text-primary"></i> Current Position
                                 </h2>
                                 <h4 class="text-primary">Engineer-in-Training</h4>
-                                <p class="text-muted mb-3">Transnet Rail Infrastructure Manager | April 2025 - Present (1 year)</p>
+                                <p class="text-muted mb-3">Transnet Rail Infrastructure Manager | April 2025 - <span class="eit-end-date">Present</span> (1 year)</p>
                                 <ul class="list-unstyled">
                                     <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Developing Rail Monitoring dashboard using React TypeScript</li>
                                     <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Leading Open Tenders and procurement processes</li>
@@ -183,6 +183,12 @@
                 });
             }
         });
+    </script>
+    <script>
+        (function () {
+            var label = new Date() >= new Date('2027-04-01') ? 'March 2027' : 'Present';
+            document.querySelectorAll('.eit-end-date').forEach(function (el) { el.textContent = label; });
+        })();
     </script>
 </body>
 </html>
