@@ -120,7 +120,7 @@
                                     <i class="bi bi-briefcase text-primary"></i> Current Position
                                 </h2>
                                 <h4 class="text-primary">Engineer-in-Training</h4>
-                                <p class="text-muted mb-3">Transnet Rail Infrastructure Manager | April 2025 - <span class="eit-end-date">Present</span> (1 year)</p>
+                                <p class="text-muted mb-3">Transnet Rail Infrastructure Manager | April 2025 - <span class="eit-end-date">Present</span> <span id="eit-duration">(1 year)</span></p>
                                 <ul class="list-unstyled">
                                     <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Developing Rail Monitoring dashboard using React TypeScript</li>
                                     <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Leading Open Tenders and procurement processes</li>
@@ -186,8 +186,22 @@
     </script>
     <script>
         (function () {
-            var label = new Date() >= new Date('2027-04-01') ? 'March 2027' : 'Present';
+            var now    = new Date();
+            var cap    = new Date(2027, 2, 31); // March 31 2027
+            var end    = now < cap ? now : cap;
+            var label  = now >= new Date(2027, 3, 1) ? 'March 2027' : 'Present';
             document.querySelectorAll('.eit-end-date').forEach(function (el) { el.textContent = label; });
+
+            var start  = new Date(2025, 3, 1); // April 2025
+            var years  = end.getFullYear() - start.getFullYear();
+            var months = end.getMonth()     - start.getMonth();
+            if (months < 0) { years--; months += 12; }
+            var parts = [];
+            if (years  > 0) parts.push(years  + ' year'  + (years  > 1 ? 's' : ''));
+            if (months > 0) parts.push(months + ' month' + (months > 1 ? 's' : ''));
+            if (parts.length === 0) parts.push('less than a month');
+            var dur = document.getElementById('eit-duration');
+            if (dur) dur.textContent = '(' + parts.join(' ') + ')';
         })();
     </script>
 </body>
