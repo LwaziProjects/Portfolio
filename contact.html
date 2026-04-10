@@ -115,10 +115,7 @@
                                 </div>
 
                                 <form id="contact-form" novalidate>
-                                    <!-- Web3Forms: replace YOUR_ACCESS_KEY with the key emailed to you from web3forms.com -->
-                                    <input type="hidden" name="access_key" value="b2b9d930-3b85-4d2f-a938-ea01a4ee9e13">
-                                    <input type="hidden" name="subject" value="New Contact Form Submission">
-                                    <input type="hidden" name="from_name" value="Portfolio Website">
+                                    <input type="hidden" id="submitted_on" name="submitted_on">
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <label for="from_name" class="form-label fw-bold">Full Name <span class="text-danger">*</span></label>
@@ -168,7 +165,10 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+        emailjs.init({ publicKey: 'cIPv9ZiI4xeANsTq6' });
+
         // Theme toggle
         const getStoredTheme = () => localStorage.getItem('theme') || 'light';
         const setStoredTheme = theme => localStorage.setItem('theme', theme);
@@ -192,7 +192,7 @@
             const errorMsg   = document.getElementById('error-msg');
 
             if (form) {
-                form.addEventListener('submit', async (e) => {
+                form.addEventListener('submit', (e) => {
                     e.preventDefault();
 
                     if (!form.checkValidity()) {
@@ -205,53 +205,24 @@
                     successMsg.classList.add('d-none');
                     errorMsg.classList.add('d-none');
 
-                    // Build the message body to resemble the screenshot format
-                    const name    = document.getElementById('from_name').value;
-                    const email   = document.getElementById('reply_to').value;
-                    const phone   = document.getElementById('phone').value || 'Not provided';
-                    const subject = document.getElementById('subject_input').value;
-                    const msg     = document.getElementById('message').value;
-                    const now     = new Date().toLocaleString('en-ZA', {
-                        year:'numeric', month:'long', day:'numeric',
-                        hour:'2-digit', minute:'2-digit'
+                    document.getElementById('submitted_on').value = new Date().toLocaleString('en-ZA', {
+                        year: 'numeric', month: 'long', day: 'numeric',
+                        hour: '2-digit', minute: '2-digit'
                     });
 
-                    const payload = {
-                        access_key: document.querySelector('[name="access_key"]').value,
-                        subject: 'New Contact Form Submission: ' + subject,
-                        from_name: 'Portfolio Website',
-                        replyto: email,
-                        message:
-                            'You have received a new message from your portfolio website!\n\n' +
-                            'From: '    + name    + '\n' +
-                            'Email: '  + email   + '\n' +
-                            'Phone: '  + phone   + '\n' +
-                            'Subject: '+ subject + '\n\n' +
-                            'Message:\n' + msg   + '\n\n' +
-                            '---\n' +
-                            'Submitted on: ' + now
-                    };
-
-                    try {
-                        const res = await fetch('https://api.web3forms.com/submit', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        const data = await res.json();
-                        if (data.success) {
+                    emailjs.sendForm('service_0fewqq9', 'template_g7xodfn', form)
+                        .then(() => {
                             form.reset();
                             form.classList.remove('was-validated');
                             successMsg.classList.remove('d-none');
-                        } else {
+                        })
+                        .catch(() => {
                             errorMsg.classList.remove('d-none');
-                        }
-                    } catch {
-                        errorMsg.classList.remove('d-none');
-                    }
-
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="bi bi-send"></i> Send Message';
+                        })
+                        .finally(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<i class="bi bi-send"></i> Send Message';
+                        });
                 });
             }
         });
