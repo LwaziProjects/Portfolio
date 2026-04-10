@@ -31,22 +31,33 @@
 
         /* ── Print styles ──────────────────────────────── */
         @media print {
-            @page { margin: 8mm 10mm; size: A4 portrait; }
+            @page { margin: 10mm 12mm; size: A4 portrait; }
             .no-print { display: none !important; }
             body { font-size: 8.5pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #000; background: #fff; }
+            main { max-width: 100% !important; width: 100% !important; padding: 0 !important; margin: 0 !important; }
             .cv-wrap { max-width: 100%; margin: 0; }
+            /* Prevent job entries and sections splitting across pages */
+            section.cv-section { break-inside: avoid; page-break-inside: avoid; padding: 4pt 10pt; border-bottom: 1px solid #ccc; }
+            .cv-section > div { break-inside: avoid; page-break-inside: avoid; }
+            h2.cv-heading { break-after: avoid; page-break-after: avoid; font-size: 7pt; color: #1a3a5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; border-bottom: 1pt solid #2563eb; margin-bottom: 3pt; }
+            /* Header */
             .cv-header { background: #1a3a5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #fff !important; padding: 6pt 10pt; border-radius: 0; }
             .cv-header h1 { font-size: 14pt; }
             .cv-header .subtitle { font-size: 8pt; }
             .cv-header .contact-line { font-size: 7pt; }
             .cv-header a { color: #a8d4ff !important; }
-            section.cv-section { padding: 4pt 10pt; border-bottom: 1px solid #ccc; }
-            h2.cv-heading { font-size: 7pt; color: #1a3a5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; border-bottom: 1pt solid #2563eb; margin-bottom: 3pt; }
+            /* Replace Bootstrap icons with text fallbacks in print */
+            .bi-globe2::before { content: "Web"; font-style: normal; font-size: 7pt; }
+            .bi-github::before { content: "GitHub"; font-style: normal; font-size: 7pt; }
+            /* Typography */
             .job-title { font-size: 8.5pt; }
             .job-meta { font-size: 7.5pt; }
             ul.cv-list li, .skills-row { font-size: 7.5pt; line-height: 1.35; }
+            /* Remove decorative borders/shadows */
             .cv-body { border: none; }
             a { color: #000 !important; text-decoration: none; }
+            /* Ensure flex rows stay on one line */
+            .d-flex { display: flex !important; }
         }
     </style>
 </head>
