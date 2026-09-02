@@ -1,0 +1,12 @@
+# Normalise line endings. The repository is committed with LF; without this,
+# a Windows checkout rewrites every file to CRLF and `git status` reports the
+# whole tree as modified, which buries real changes.
+* text=auto eol=lf
+
+# Binary assets must never be normalised.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary

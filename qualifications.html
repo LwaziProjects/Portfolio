@@ -50,12 +50,32 @@
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
 
+                        <!-- MSc, North-West University -->
+                        <div class="card mb-4 border-0 shadow">
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3 mb-md-0">
+                                        <div class="text-primary fw-bold">2026 - Present</div>
+                                        <span class="badge bg-primary mt-2">Research in progress</span>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h3 class="h4 mb-2">
+                                            <i class="bi bi-mortarboard text-primary"></i>
+                                            MSc, Computer &amp; Electronic Engineering
+                                        </h3>
+                                        <h5 class="text-muted mb-3">North-West University</h5>
+                                        <p class="mb-3">Research on spatially resolved fault detection and localisation in photovoltaic arrays using large-sparse historical consistent neural networks. The sparsity mask is derived from the array’s electrical wiring graph, the model trains on healthy operating data only, and faults are located from the spatial geometry of the prediction-error residuals. Validated against a component-level Simscape Electrical model of an 80 kW array.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- BSc Honours in Computer Engineering -->
                         <div class="card mb-4 border-0 shadow">
                             <div class="card-body p-4">
                                 <div class="row">
                                     <div class="col-md-3 mb-3 mb-md-0">
-                                        <div class="text-primary fw-bold">2019 - 2024 Jun</div>
+                                        <div class="text-primary fw-bold">2019 - June 2024</div>
                                     </div>
                                     <div class="col-md-9">
                                         <h3 class="h4 mb-2">
@@ -63,7 +83,7 @@
                                             BSc (Honours) in Computer Engineering
                                         </h3>
                                         <h5 class="text-muted mb-3">University of KwaZulu-Natal</h5>
-                                        <p class="mb-3">Completed a comprehensive Honours degree program in Computer Engineering, gaining in-depth knowledge of software development, hardware systems, automation, and advanced computing technologies.</p>
+                                        <p class="mb-3">ECSA-accredited Honours degree covering software development, embedded and hardware systems, signal processing and control.</p>
 
                                         <h6 class="fw-bold mb-2">Core Curriculum Highlights:</h6>
                                         <div class="row g-3 mb-3">
@@ -118,7 +138,7 @@
                                                             <li>Signal Processing</li>
                                                             <li>Industrial Automation</li>
                                                             <li>Real-Time Systems</li>
-                                                            <li>System Modeling</li>
+                                                            <li>System Modelling</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -171,12 +191,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="alert alert-success mt-3 mb-0">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-trophy-fill fs-3 me-3"></i>
-                                                <div><strong>Achievement</strong> - Bachelor's Degree Pass</div>
-                                            </div>
-                                        </div>
+                                        <p class="text-muted small mt-3 mb-0">Bachelor's Degree Pass.</p>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +227,7 @@
                                             <i class="bi bi-laptop display-6"></i>
                                         </div>
                                         <h6 class="fw-bold">Software Development</h6>
-                                        <p class="small text-muted mb-0">Full-stack development expertise</p>
+                                        <p class="small text-muted mb-0">Full-stack development</p>
                                     </div>
                                     <div class="col-md-3 col-sm-6 text-center">
                                         <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:80px;height:80px;">
@@ -251,7 +266,7 @@
                                 </div>
                                 <div class="col-md-11">
                                     <h5 class="alert-heading mb-2">Commitment to Continuous Learning</h5>
-                                    <p class="mb-0">I am committed to staying current with emerging technologies and engineering practices through self-study, online courses, professional development workshops, and hands-on project work. This dedication ensures that I continue to grow as an engineering professional while contributing effectively to challenging projects.</p>
+                                    <p class="mb-0">I am committed to staying current with emerging technologies and engineering practices through self-study, online courses, professional development workshops, and hands-on project work. Currently registered for an MSc at North-West University and running the research alongside the ECSA candidacy, with the engineering competency logbook maintained against the registration requirements.</p>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +280,7 @@
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container text-center">
-            <p class="mb-2">&copy; 2025 Lwazi Knowledge Gumede. All rights reserved.</p>
+            <p class="mb-2">&copy; <span class="copyright-year">2025</span> Lwazi Knowledge Gumede. All rights reserved.</p>
             <p class="mb-0">
                 <a href="mailto:lwazig28@gmail.com" class="text-white me-3"><i class="bi bi-envelope"></i> lwazig28@gmail.com</a>
                 <a href="tel:+27769352103" class="text-white"><i class="bi bi-phone"></i> +27 76 935 2103</a>
@@ -289,6 +304,11 @@
                 const next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
                 setStoredTheme(next); setTheme(next);
             });
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.copyright-year').forEach(function (el) {
+            el.textContent = new Date().getFullYear();
         });
     </script>
 </body>

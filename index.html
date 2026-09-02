@@ -50,7 +50,7 @@
                         <h1 class="display-3 fw-bold mb-3">Lwazi Knowledge Gumede</h1>
                         <p class="lead mb-4">ECSA Candidate Engineer | BSc (Honours) Computer Engineering</p>
                         <p class="fs-5 mb-4">
-                            Results-driven engineer proficient in software development, system automation, and hardware integration
+                            I build monitoring and automation software for live rail infrastructure at Transnet, and work on the field systems it reports on
                         </p>
                         <div class="d-flex gap-3 justify-content-center flex-wrap">
                             <a href="resume.html" class="btn btn-light btn-lg">
@@ -79,7 +79,7 @@
                                     <i class="bi bi-code-slash display-4 text-primary"></i>
                                 </div>
                                 <h3 class="card-title h5">Software Development</h3>
-                                <p class="card-text">Expert in Python, C++, Java, JavaScript, and modern web frameworks including React, Django, and Flask.</p>
+                                <p class="card-text">Working daily in Python, TypeScript and C++, with React, Django and Flask.</p>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                     <i class="bi bi-gear-fill display-4 text-primary"></i>
                                 </div>
                                 <h3 class="card-title h5">System Automation</h3>
-                                <p class="card-text">Specialized in developing automation solutions, cron jobs, bash scripting, and system integration.</p>
+                                <p class="card-text">Automating recurring engineering workflows with Python, Bash and scheduled services.</p>
                             </div>
                         </div>
                     </div>
@@ -122,10 +122,10 @@
                                 <h4 class="text-primary">Engineer-in-Training</h4>
                                 <p class="text-muted mb-3">Transnet Rail Infrastructure Manager | April 2025 - <span class="eit-end-date">Present</span> <span id="eit-duration"></span></p>
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Developing Rail Monitoring dashboard using React TypeScript</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Leading Open Tenders and procurement processes</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Building the Rail Monitor dashboard in React and TypeScript</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Owning engineering change proposals and the procurement workflows that follow them</li>
                                     <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Implementing Engineering Change Proposals (ECPs)</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Managing CAS upgrades and system automation</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Running technical reviews, field testing and commissioning on Condition Assessment Systems (CAS)</li>
                                 </ul>
                                 <a href="experience.html" class="btn btn-primary">View Full Experience</a>
                             </div>
@@ -151,7 +151,7 @@
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container text-center">
-            <p class="mb-2">&copy; 2025 Lwazi Knowledge Gumede. All rights reserved.</p>
+            <p class="mb-2">&copy; <span class="copyright-year">2025</span> Lwazi Knowledge Gumede. All rights reserved.</p>
             <p class="mb-0">
                 <a href="mailto:lwazig28@gmail.com" class="text-white me-3">
                     <i class="bi bi-envelope"></i> lwazig28@gmail.com
@@ -203,6 +203,11 @@
             var dur = document.getElementById('eit-duration');
             if (dur) dur.textContent = '(' + parts.join(' ') + ')';
         })();
+    </script>
+    <script>
+        document.querySelectorAll('.copyright-year').forEach(function (el) {
+            el.textContent = new Date().getFullYear();
+        });
     </script>
 </body>
 </html>
