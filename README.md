@@ -1,118 +1,81 @@
-# Lwazi Knowledge Gumede - Personal Portfolio Website
+# Portfolio
 
-A personal portfolio website for Lwazi Knowledge Gumede, an ECSA Candidate Engineer with a BSc (Honours) in Computer Engineering. The site is a static HTML/CSS/JavaScript application hosted on GitHub Pages.
+Source for [lwaziprojects.github.io/Portfolio](https://lwaziprojects.github.io/Portfolio/), the personal site of Lwazi Knowledge Gumede, systems engineer at Transnet Rail Infrastructure Manager.
 
-🌐 **Live Site**: [lwaziprojects.github.io/Portfolio](https://lwaziprojects.github.io/Portfolio/)  
-📦 **GitHub**: [github.com/LwaziProjects/Portfolio](https://github.com/LwaziProjects/Portfolio)
+It's one static page: plain HTML, one CSS file, self-hosted fonts and two photos. No framework, no build step, no JavaScript, and nothing loaded from third-party servers. First load is about 210 KB.
 
-## Overview
-
-This is a fully static site: every page is plain HTML served directly by GitHub Pages, with no backend or database. Styling comes from Bootstrap (via CDN) plus a small custom stylesheet, and the interactive pieces (theme toggle, contact form, PDF export) run entirely in the browser.
-
-## Features
-
-- **Home**: Introduction with a professional summary and quick links
-- **About**: Bio, areas of expertise, and technical skills
-- **Experience**: Work history at Transnet and UKZN with impact-focused highlights
-- **Projects**: A showcase of academic and professional projects, including the IoT Smart Meter System, Blockchain Invoice Verification, Multi-Factor Authentication System, and Transnet rail dashboards
-- **Qualifications**: Educational background and academic achievements
-- **Contact**: Contact details and a working message form (see below)
-- **Resume / CV**: A print-ready CV page ([resume.html](resume.html)) that exports to PDF straight from the browser
-- **Light / dark theme**: Toggle in the navigation bar, remembered per browser via `localStorage`
-- **Responsive design**: Bootstrap 5 layout that adapts to phones, tablets, and desktops
-
-## Technology Stack
-
-- **Markup**: HTML5
-- **Styling**: CSS3 with Bootstrap 5.3 (loaded from CDN)
-- **Icons**: Bootstrap Icons
-- **Scripting**: Vanilla JavaScript (no framework, no build step)
-- **Contact form**: [EmailJS](https://www.emailjs.com/) (client-side email delivery)
-- **Hosting**: GitHub Pages
-
-## Project Structure
-
-```
-Portfolio/
-│
-├── index.html            # Home page
-├── about.html            # About page
-├── experience.html       # Experience page
-├── projects.html         # Projects page
-├── qualifications.html   # Qualifications page
-├── contact.html          # Contact page (EmailJS form)
-├── resume.html           # Print-to-PDF CV page
-│
-├── main/
-│   └── static/
-│       └── css/
-│           └── style.css # Custom styles shared across pages
-│
-├── .nojekyll             # Tells GitHub Pages to skip Jekyll processing
-└── README.md             # This file
-```
-
-> **Note:** The repository also contains an earlier Django version of this portfolio (the `main/` app, `portfolio/` config, and `requirements.txt`). That version is no longer deployed - the live site is the static HTML above. The Django files are kept only for reference.
-
-## Running Locally
-
-Because the site is static, you can open it without any build tools.
-
-**Quickest way:** double-click `index.html` (or open it in your browser).
-
-**With a local server** (recommended, mirrors how GitHub Pages serves the files):
+## Run it locally
 
 ```powershell
-# From the project folder
-python -m http.server 8000
+cd Portfolio
+python -m http.server 8000 --directory docs
 ```
 
-Then visit **http://localhost:8000/** in your browser.
+Then open http://localhost:8000. Double-clicking `docs/index.html` also works.
 
-## Deployment (GitHub Pages)
+## Where things are
 
-The site deploys automatically from GitHub Pages. To publish changes:
+| Path | What it is |
+|---|---|
+| `docs/index.html` | The whole site, in order: masthead, introduction, Work, Tools, Qualifications, Contact |
+| `docs/styles.css` | All styling. Colours, type sizes and spacing are tokens at the top in `:root` |
+| `docs/fonts/` | Besley and IBM Plex Mono as Latin WOFF2 subsets, with their OFL licences |
+| `docs/images/` | `portrait.webp` (introduction) and `site-visit.webp` (beside the RailBAM entry) |
+| `docs/Lwazi_Knowledge_Gumede_CV.pdf` | The CV every download link points to |
+| `docs/og-image.png` | The preview card LinkedIn and WhatsApp show when the link is shared |
+| `docs/404.html` | Shown for any address that doesn't exist |
+| `docs/about.html`, `experience.html`, `projects.html`, `qualifications.html`, `contact.html`, `resume.html` | Redirects from the old multi-page site, so existing links still land somewhere |
+| `.github/workflows/pages.yml` | Publishes `docs/` to GitHub Pages when a push to `main` touches it |
+| `main/`, `portfolio/`, `manage.py`, `Dockerfile` | The earlier Django version. Kept for reference, not published |
 
-1. Commit and push to the `main` branch:
-   ```powershell
-   git add .
-   git commit -m "Your update message"
-   git push origin main
-   ```
-2. GitHub Pages rebuilds the site within a minute or two, and the changes appear at the live URL.
+## Common edits
 
-**One-time Pages setup** (already configured for this repo):
+**Add a project.** In `docs/index.html`, find the role it belongs to (each `<article class="group">` is one role) and copy an existing `<li class="entry">` block into it. Newest goes first. Keep the summary to a short paragraph and put the longer detail in that entry's `<details class="notes">` block.
 
-- In the GitHub repository, go to **Settings → Pages**.
-- Under **Build and deployment**, set **Source** to *Deploy from a branch*.
-- Choose the `main` branch and the `/ (root)` folder, then save.
-- The `.nojekyll` file ensures the files are served exactly as-is (no Jekyll processing).
+**Add a role.** Copy a whole `<article class="group">` block and place it in date order.
 
-## Contact Form
+**Replace the CV.** Overwrite `docs/Lwazi_Knowledge_Gumede_CV.pdf` and keep the file name so every link keeps working.
 
-The contact form on [contact.html](contact.html) is powered by **EmailJS**, which sends submissions straight to `lwazig28@gmail.com` from the browser - no server required. If a message fails to send, the form shows a fallback prompting the visitor to email directly.
+**Bump the revision.** When the content changes, move the letter in the title block (bottom of `index.html`) to the next one, A to B to C, and update the date beside it. It's how a visitor can tell how current the page is.
 
-To point the form at a different account, update the EmailJS `publicKey`, `serviceID`, and `templateID` values in the `<script>` block near the bottom of `contact.html`.
+**Change a colour or size.** Edit the tokens at the top of `docs/styles.css`. The hi-vis colour (`--hivis`) is only used on the title block. Keep it that way.
 
-## Resume / PDF Export
+## Content rules for Transnet work
 
-The CV lives at [resume.html](resume.html) and is styled for both screen and print. Clicking **Download / Save as PDF** opens the browser's print dialog with print-optimised styles applied. For a clean PDF, set the destination to *Save as PDF*, paper size to *A4*, and untick *Headers and footers*.
+This site is public. Describe what a system does and what you did on it, and leave out:
 
-## Contact
+- hostnames, IP addresses, ports, server or machine names, user IDs and file paths
+- database, table, script and internal system names
+- live data, availability figures, fault counts and dashboard screenshots
+- specific sites, corridors, depots and incident details, derailments included
+- supplier, tender and procurement details
+- names of colleagues and managers
 
-**Lwazi Knowledge Gumede**
+If you're unsure, write it the way you'd explain it to someone outside the company.
 
-- **Location**: UMlazi, Durban, South Africa
-- **Email**: lwazig28@gmail.com
-- **Status**: ECSA Candidate Engineer
-- **Education**: BSc (Honours) Computer Engineering, University of KwaZulu-Natal
+## Deployment
 
-## License
+Pushing to `main` runs `.github/workflows/pages.yml`, which uploads `docs/` and deploys it. The live site updates within a couple of minutes.
 
-This is a personal portfolio website. All rights reserved by Lwazi Knowledge Gumede.
+One-time setting: **Settings > Pages > Build and deployment > Source: GitHub Actions**.
 
----
+If you'd rather not use Actions, set Source to *Deploy from a branch*, choose `main` and `/docs`, and delete the workflow file.
 
-**Built with HTML5, CSS3, JavaScript, and Bootstrap 5.3 | Hosted on GitHub Pages**
+`docs/404.html` contains `<base href="/Portfolio/">`. If the repo is renamed or a custom domain is added, change that one line.
 
-**Last Updated**: July 2026
+## Fonts
+
+Besley (Owen Earl) and IBM Plex Mono (IBM), both under the SIL Open Font License. The licences are in `docs/fonts/`. Source files come from the [google/fonts](https://github.com/google/fonts) repository and were cut down with fontTools:
+
+```bash
+fonttools varLib.instancer "Besley[wght].ttf" wght=400:700 -o besley-400-700.ttf
+pyftsubset besley-400-700.ttf \
+  --unicodes="U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+20AC,U+2122,U+2190-2193,U+2212" \
+  --flavor=woff2 --output-file=besley-latin-var.woff2
+```
+
+The same `--unicodes` list was used for IBM Plex Mono Regular, Italic and Medium. If you add text with characters outside it, re-run the subset with the extra code points, or the browser will fall back to Georgia or Menlo for those characters.
+
+## Licence
+
+Content and photos © Lwazi Knowledge Gumede, all rights reserved. Fonts are under their own OFL licences.

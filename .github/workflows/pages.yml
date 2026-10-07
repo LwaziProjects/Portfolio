@@ -1,8 +1,11 @@
-name: Deploy Portfolio to GitHub Pages
+name: Deploy portfolio to GitHub Pages
 
 on:
   push:
     branches: ["main"]
+    paths:
+      - "docs/**"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -20,20 +23,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Check out
         uses: actions/checkout@v4
 
-      - name: Setup GitHub Pages
+      - name: Set up Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload static site artifact
+      # Only the site folder is published. The legacy Django code stays in the repo but off the web.
+      - name: Upload docs/
         uses: actions/upload-pages-artifact@v3
         with:
-          # Deploy from the repository root — all HTML, CSS, and image files are here
-          path: "."
+          path: "docs"
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

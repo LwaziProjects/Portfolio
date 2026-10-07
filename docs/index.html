@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lwazi Knowledge Gumede, systems engineer</title>
+  <meta name="description" content="Systems engineer at Transnet Rail Infrastructure Manager, Johannesburg. Monitoring and automation software for live rail infrastructure, field work on condition assessment systems, and MSc research on fault localisation in PV arrays.">
+  <link rel="canonical" href="https://lwaziprojects.github.io/Portfolio/">
+  <meta name="theme-color" content="#ECEEE9">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Lwazi Knowledge Gumede">
+  <meta property="og:description" content="I build monitoring and automation software for live rail infrastructure at Transnet, and work on the field systems it reports on.">
+  <meta property="og:url" content="https://lwaziprojects.github.io/Portfolio/">
+  <meta property="og:image" content="https://lwaziprojects.github.io/Portfolio/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lwazi Knowledge Gumede, systems engineer, rail infrastructure">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="fonts/besley-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lwazi Knowledge Gumede",
+    "jobTitle": "Systems Engineer (Engineer-in-Training)",
+    "worksFor": { "@type": "Organization", "name": "Transnet SOC Ltd, Rail Infrastructure Manager" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of KwaZulu-Natal" },
+    "email": "mailto:lwazig28@gmail.com",
+    "url": "https://lwaziprojects.github.io/Portfolio/",
+    "sameAs": ["https://github.com/LwaziProjects"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Johannesburg", "addressCountry": "ZA" }
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <h1 class="masthead__name">Lwazi Knowledge Gumede</h1>
+    <nav class="masthead__nav" aria-label="Sections">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#qualifications">Qualifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Lwazi_Knowledge_Gumede_CV.pdf" download>CV <span aria-hidden="true">↓</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero grid" aria-label="Introduction">
+    <p class="hero__statement">I build monitoring and automation software for live rail infrastructure at Transnet, and work on the field systems it reports on.</p>
+    <img class="hero__portrait" src="images/portrait.webp" width="560" height="700" alt="Lwazi Knowledge Gumede" fetchpriority="high" decoding="async">
+    <div class="hero__role">
+      <p>Systems engineer at Transnet Rail Infrastructure Manager, Johannesburg, on the Engineer-in-Training programme.</p>
+      <p>ECSA Candidate Engineer. BSc (Honours) Computer Engineering, University of KwaZulu-Natal. MSc research in progress at North-West University.</p>
+      <p class="hero__links">
+        <a href="mailto:lwazig28@gmail.com">lwazig28@gmail.com</a>
+        <a href="Lwazi_Knowledge_Gumede_CV.pdf" download>CV, PDF <span aria-hidden="true">↓</span></a>
+      </p>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- WORK: one register, newest first. Each group is a role; entries are the projects done in it. -->
+    <section class="section grid" id="work" aria-labelledby="work-title">
+      <h2 class="section__title" id="work-title">Work</h2>
+      <p class="section__lead">Newest first. Open “Full notes” under an entry for the detail.</p>
+
+      <!-- Transnet Rail Infrastructure Manager -->
+      <article class="group" id="transnet" aria-labelledby="g-transnet">
+        <div class="group__rail">
+          <p class="group__period">2025–now</p>
+          <p class="group__place">Johannesburg</p>
+        </div>
+        <div class="group__body">
+          <h3 class="group__role" id="g-transnet">Systems engineer, Engineer-in-Training</h3>
+          <p class="group__org">Transnet SOC Ltd, Rail Infrastructure Manager</p>
+          <ul class="group__duties">
+            <li>Replaced manually compiled spreadsheets with full-stack monitoring dashboards that give the Technical Office and corridor depots a single live view of rail operations, saving roughly a week of manual work each month.</li>
+            <li>Built automated Python/REST services for data collection, vehicle identification and compliance reporting, removing repetitive manual logging from daily engineering work.</li>
+            <li>Run technical reviews, field testing and commissioning of Condition Assessment Systems (CAS), and support derailment investigations with documented analysis and configuration management.</li>
+          </ul>
+
+          <ul class="entries">
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Rail Monitor</h4>
+                <p class="entry__meta">Active</p>
+              </div>
+              <p class="entry__text">One live view of equipment availability across points, signals, TVDS, power and remote control. Availability is scored with a weighting per equipment type, using SAP, GPS and manual operator input that is checked weekly with the Technical Office. I designed and built it, including the back-end logic for substation breaker and switching states. Phase 1 tracks status per station; phase 2, which I presented to stakeholders, moves to individual assets.</p>
+              <p class="entry__stack">React, TypeScript, Django, PostgreSQL, WebSocket</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <p><span class="notes__label">Problem statement.</span> Need to view substation availability in a consolidated and current view for efficient monitoring of railway infrastructure.</p>
+                  <p class="notes__label">Project involvement</p>
+                  <ul>
+                    <li>Back-end logic development for substation breaker logic implementation</li>
+                    <li>Front-end development of substation availability visualisation</li>
+                    <li>Integration of switching logic information</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Train movement graph optimisation</h4>
+                <p class="entry__meta">Active</p>
+              </div>
+              <p class="entry__text">An internal rail monitoring system showed every CTC section in one undifferentiated view, which made per-section analysis impractical, and there was no historical movement data for trend analysis. I rewrote the sequencing logic so each section gets its own graph, and added a historical archive beside the real-time database, a caching layer, a background export worker and a historical overlay for comparing past and live movements.</p>
+              <p class="entry__stack">PHP, PostgreSQL, Highcharts</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <p class="notes__label">Project involvement</p>
+                  <ul>
+                    <li>Reviewed and understood the existing sequencing logic in the legacy codebase</li>
+                    <li>Rewrote the logic to support segmented, per-section graph views</li>
+                    <li>Designed and integrated a dual-database architecture (real-time + historical archive)</li>
+                    <li>Implemented an intelligent caching layer to reduce database load</li>
+                    <li>Built a background processing worker for export functionality without blocking the UI</li>
+                    <li>Developed a historical data overlay for side-by-side comparison with live data</li>
+                  </ul>
+                  <p class="notes__label">Key challenges</p>
+                  <ul>
+                    <li>Processing large date ranges without memory exhaustion (chunked approach)</li>
+                    <li>Isolating real-time and historical queries without degrading performance</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Trunking highsite dashboard</h4>
+                <p class="entry__meta">Active</p>
+              </div>
+              <p class="entry__text">The Network Operations Centre watched faults across several separate screens, and scheduled ingestion scripts were failing silently on some machines, so the data went stale. I built one consolidated view with long-outstanding fault tracking, asset visualisation and availability monitoring, traced the ingestion failures, and moved data collection onto background services so the feed stays current.</p>
+              <p class="entry__stack">React, Python, PostgreSQL, Windows services</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <p class="notes__label">Project involvement</p>
+                  <ul>
+                    <li>Software development for a consolidated dashboard view and long outstanding fault tracking</li>
+                    <li>Asset visualisation across the railway network and infrastructure availability monitoring</li>
+                    <li>Investigated and resolved data ingestion failures, gaining hands-on understanding of how system architecture, OS environments, and service dependencies interact</li>
+                    <li>Deployed background data services to ensure continuous, reliable data flow to the dashboard</li>
+                  </ul>
+                  <p>NOC and field teams now monitor faults, subscribers and billing activity from a single interface in real time.</p>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">CAS availability dashboard</h4>
+                <p class="entry__meta">Active</p>
+              </div>
+              <p class="entry__text">Rebuilding the CAS dashboard by scraping data out of the legacy system into PostgreSQL. I’m now moving new development into production as one system rather than table by table, with a per-table impact list of what actually changes and a test for each migration.</p>
+              <p class="entry__stack">PostgreSQL, PHP, data pipelines, legacy migration</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <p class="notes__label">Project involvement</p>
+                  <ul>
+                    <li>Dashboard redesign and modernisation with data scraping from legacy CAS system</li>
+                    <li>PostgreSQL database integration and data pipeline development</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">VIS Master</h4>
+                <p class="entry__meta">Active</p>
+              </div>
+              <p class="entry__text">Monitors the health and communication status of Vehicle Identification Systems across the railway network. I built the system health monitoring, the communication diagnostics and the status tracking for VIS infrastructure.</p>
+            </li>
+
+            <li class="entry entry--figure">
+              <div class="entry__head">
+                <h4 class="entry__title">RailBAM calibration</h4>
+                <p class="entry__meta">Field work</p>
+              </div>
+              <p class="entry__text">RailBAM gives early, automated detection of bearing and wheel defects on passing trains using high-frequency acoustic monitoring, covering running surface (RS), looseness/fretting (LF) and wheel flat (WHLFLT) faults. It needs periodic calibration to stay accurate. I took part in calibrating the trackside acoustic cabinets and wayside hut hardware, configured speaker set-up points and sensitivity thresholds, and confirmed sensor performance in the trending database afterwards.</p>
+              <p class="entry__stack">RailBAM Wayside Software, Process Monitor, acoustic sensor calibration</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <p class="notes__label">Project involvement</p>
+                  <ul>
+                    <li>Participated in physical calibration of trackside acoustic cabinets and wayside hut hardware</li>
+                    <li>Configured speaker set-up points and adjusted acoustic sensitivity thresholds</li>
+                    <li>Used RailBAM Wayside Software for data acquisition, analysis, and calibration validation</li>
+                    <li>Worked with Process Monitor for session control and fault handling during calibration</li>
+                    <li>Observed RailBAM Trending Database output to confirm correct sensor performance post-calibration</li>
+                  </ul>
+                  <p class="notes__label">Key challenges</p>
+                  <ul>
+                    <li>Detecting faint acoustic fault signatures in a high-noise trackside environment</li>
+                    <li>Synchronising acoustic, speed, and tag data for accurate fault classification</li>
+                    <li>Handling harsh environmental conditions during outdoor calibration work</li>
+                  </ul>
+                </div>
+              </details>
+              <figure class="entry__figure">
+                <img src="images/site-visit.webp" width="480" height="600" alt="Lwazi Knowledge Gumede on a site visit, wearing a high-visibility vest" loading="lazy" decoding="async">
+                <figcaption>On a site visit.</figcaption>
+              </figure>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Offline ML platform for train movement data</h4>
+                <p class="entry__meta">In development</p>
+              </div>
+              <p class="entry__text">I designed a fully offline, CPU-only machine-learning platform for train movement data: delay prediction with LightGBM, demand forecasting with Prophet and an LSTM, schedule optimisation with OR-Tools CP-SAT, anomaly detection with an Isolation Forest and an autoencoder, real-time position prediction with a Kalman filter and XGBoost, and asset lifecycle tracking with lifelines and SQLite.</p>
+              <p class="entry__stack">FastAPI, Streamlit, MLflow, DuckDB</p>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">R&amp;D engineering change and procurement</h4>
+                <p class="entry__meta">Active</p>
+              </div>
+              <p class="entry__text">I own R&amp;D engineering change proposals (ECPs) and the procurement workflows that follow them, end to end across departments, from technical motivation through to award.</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- North-West University -->
+      <article class="group" id="research" aria-labelledby="g-research">
+        <div class="group__rail">
+          <p class="group__period">2026–now</p>
+        </div>
+        <div class="group__body">
+          <h3 class="group__role" id="g-research">MSc, Computer and Electronic Engineering</h3>
+          <p class="group__org">North-West University. Research in progress.</p>
+
+          <ul class="entries">
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title entry__title--long">Large-sparse historical consistent neural networks for spatially resolved fault detection and localisation in photovoltaic arrays</h4>
+              </div>
+              <p class="entry__text">The sparsity mask is derived from the array’s electrical wiring graph, the model trains on healthy operating data only, and faults are located from the spatial geometry of the prediction-error residuals. It is being validated against a component-level Simscape Electrical model of an 80 kW array.</p>
+              <p class="entry__stack">MATLAB, Simulink, Simscape Electrical</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>The array model is built programmatically: a MATLAB script places and wires the Simscape Electrical blocks. MATLAB R2026a dropped the Specialized Power Systems library, so the model moved to the Simscape Electrical foundation library.</li>
+                    <li>Planned fault library: line-to-line, line-to-ground, open circuit, degradation, shading and bypass diode faults, in series-parallel and total-cross-tied layouts.</li>
+                    <li>Weather forcing from SAURAN station data, with external validation on the GPVS-Faults dataset.</li>
+                    <li>Benchmarks planned against dense and random-mask HCNNs, an LSTM autoencoder, supervised classifiers and the string-current residual method.</li>
+                    <li>Groundwork: a review of eleven papers on digital twins in power systems, predictive analytics in smart grids, and detecting false data injection, remote tripping command injection, system reconfiguration and denial-of-service attacks.</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- UKZN teaching -->
+      <article class="group" id="teaching" aria-labelledby="g-teaching">
+        <div class="group__rail">
+          <p class="group__period">2024–2025</p>
+        </div>
+        <div class="group__body">
+          <h3 class="group__role" id="g-teaching">Engineering tutor and laboratory demonstrator</h3>
+          <p class="group__org">University of KwaZulu-Natal. Five modules, first- and second-year engineering.</p>
+          <ul class="group__duties">
+            <li>Ran Technical Communication (ENCH1TC) tutorials and gave structured written feedback on reports and presentations, earning consistently positive lecturer and student ratings for clarity.</li>
+            <li>Demonstrated Computer Methods (programming and numerical analysis), Electronic Design, Electrical Principles (ENEL2EB) and Field Theory (ENEL2FT) labs, and guided student projects from concept to implementation.</li>
+            <li>Set up, verified and supervised practical lab equipment for second-year cohorts.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Transnet Engineering -->
+      <article class="group" id="transnet-engineering" aria-labelledby="g-te">
+        <div class="group__rail">
+          <p class="group__period">2023</p>
+          <p class="group__place">Durban</p>
+        </div>
+        <div class="group__body">
+          <h3 class="group__role" id="g-te">Vacation student</h3>
+          <p class="group__org">Transnet Engineering. January to March 2023.</p>
+          <ul class="group__duties">
+            <li>Built Power BI dashboards that turned raw engineering metrics into clear visual reports for decision-making.</li>
+            <li>Wrote Python pipelines that pushed engineering data into shared Google Sheets for real-time access across departments.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- UKZN degree projects -->
+      <article class="group" id="ukzn" aria-labelledby="g-ukzn">
+        <div class="group__rail">
+          <p class="group__period">2019–2024</p>
+        </div>
+        <div class="group__body">
+          <h3 class="group__role" id="g-ukzn">BSc (Honours) Computer Engineering</h3>
+          <p class="group__org">University of KwaZulu-Natal. Degree projects.</p>
+
+          <ul class="entries">
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Java calculator with a GUI</h4>
+                <p class="entry__meta"><time datetime="2024-08">Aug</time>–<time datetime="2024-11">Nov 2024</time></p>
+              </div>
+              <p class="entry__text">A calculator application in Java, built on object-oriented principles, with a Swing/AWT interface and string manipulation for parsing and evaluating expressions.</p>
+              <p class="entry__stack">Java, Swing/AWT</p>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Image compression with wavelets and Huffman coding</h4>
+                <p class="entry__meta"><time datetime="2024-04">Apr</time>–<time datetime="2024-05">May 2024</time></p>
+              </div>
+              <p class="entry__text">Image compression with a Haar wavelet transform and Huffman coding: multi-level decomposition, quantisation, encoding and decoding, with time and space complexity analysed and results measured in MSE, PSNR, compression ratio and bits per pixel.</p>
+              <p class="entry__stack">Python, NumPy</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>Designed algorithms for LL, LH, HL, and HH coefficient computation with priority queues for Huffman trees</li>
+                    <li>Analysed time complexity O(n² log n) and space complexity O(n²)</li>
+                    <li>Computed MSE, PSNR, Compression Ratio, and BPP metrics for performance evaluation</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Largest rectangular area search</h4>
+                <p class="entry__meta"><time datetime="2024-03">Mar</time>–<time datetime="2024-04">Apr 2024</time></p>
+              </div>
+              <p class="entry__text">Finds the largest rectangle of 1s in a binary matrix. A naive exhaustive search at O(n³ × m³) against an optimised version at O(m × n²), compared on real datasets.</p>
+              <p class="entry__stack">Python</p>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">PIC16 light chaser reaction game</h4>
+                <p class="entry__meta"><time datetime="2023-10">Oct</time>–<time datetime="2023-11">Nov 2023</time></p>
+              </div>
+              <p class="entry__text">A reaction-speed game on a PIC16 microcontroller, written in assembly. It drives eight LEDs in patterns and measures the player’s reaction time.</p>
+              <p class="entry__stack">PIC16, assembly, MPLAB X</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>Assembly language programming for PIC16 with LED control through GPIO pin manipulation</li>
+                    <li>Button input reading with debouncing logic and precise timing control for LED sequences</li>
+                    <li>Random number generation for game variation and state machine implementation</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Blockchain invoice discounting platform</h4>
+                <p class="entry__meta"><time datetime="2023-07">Jul</time>–<time datetime="2023-11">Nov 2023</time></p>
+              </div>
+              <p class="entry__text">A decentralised platform for invoice discounting. Invoices are tokenised as smart contracts and financed through a marketplace with multi-party verification, real-time interest calculation and bidding, then settled automatically.</p>
+              <p class="entry__stack">Solidity, Python, React, Web3.js, Ethereum, Truffle, Node.js, MongoDB</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>Smart contract-based invoice tokenisation with automated payment settlements</li>
+                    <li>Decentralised financing marketplace with transparent transaction history on blockchain</li>
+                    <li>Multi-party verification system with real-time interest calculation and bidding</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Art gallery intruder alarm system</h4>
+                <p class="entry__meta"><time datetime="2023">2023</time></p>
+              </div>
+              <p class="entry__text">An alarm system for an art gallery, taken through the full software development lifecycle from requirements analysis to testing, with full UML documentation and a C++ implementation.</p>
+              <p class="entry__stack">C++, UML, state machines</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>Domain Model, Use-Case Model, and Analysis Model (boundary, entity, and control classes)</li>
+                    <li>Sequence Diagrams, Class Analysis, and full C++ implementation</li>
+                    <li>Comprehensive black-box acceptance testing</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Temperature-controlled fan</h4>
+                <p class="entry__meta"><time datetime="2023-03">Mar</time>–<time datetime="2023-05">May 2023</time></p>
+              </div>
+              <p class="entry__text">A fan that sets its speed from the ambient temperature, built from four subsystems. I designed the motor driving unit: drive circuits for an AC induction motor with frequency-based speed control.</p>
+              <p class="entry__stack">AC motor control, power electronics, temperature sensors</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>Designed drive circuits for AC induction motor control using frequency-based speed control</li>
+                    <li>Used rotating magnetic field (RMF) principles for speed regulation</li>
+                    <li>Achieved automatic speed adjustment based on ambient temperature readings</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">IoT smart meter</h4>
+                <p class="entry__meta"><time datetime="2023-02">Feb</time>–<time datetime="2023-05">May 2023</time></p>
+              </div>
+              <p class="entry__text">Real-time energy monitoring: ESP32 hardware sends consumption readings over Wi-Fi to a server, with a web dashboard for historical analysis, alerts for abnormal consumption and data export for billing.</p>
+              <p class="entry__stack">ESP32, C++, PHP, MySQL, JavaScript, Chart.js</p>
+              <details class="notes">
+                <summary>Full notes</summary>
+                <div class="notes__body">
+                  <ul>
+                    <li>Real-time energy consumption monitoring with wireless data transmission to cloud server</li>
+                    <li>Web-based dashboard for data visualisation and historical data analysis</li>
+                    <li>Alert system for abnormal consumption patterns and data export for billing</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Authentication and key management system</h4>
+                <p class="entry__meta"><time datetime="2021-07">Jul</time>–<time datetime="2021-12">Dec 2021</time></p>
+              </div>
+              <p class="entry__text">User authentication with salted password hashing and session management, plus cryptographic key generation, storage and rotation with role-based access control, audit logging for security events and multi-factor authentication support.</p>
+              <p class="entry__stack">PHP, MySQL, JavaScript, jQuery</p>
+            </li>
+
+            <li class="entry">
+              <div class="entry__head">
+                <h4 class="entry__title">Digital sequence counter</h4>
+                <p class="entry__meta">Digital Systems II</p>
+              </div>
+              <p class="entry__text">A multi-IC sequence counter built around an NE555 clock, a 74HC191 counter and a 74HC47 decoder, with pin-level wiring diagrams drawn in Proteus.</p>
+              <p class="entry__stack">NE555, 74HC191, 74HC47, Proteus</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section grid" id="tools" aria-labelledby="tools-title">
+      <h2 class="section__title" id="tools-title">Tools</h2>
+      <dl class="deflist">
+        <div class="deflist__row">
+          <dt>At Transnet</dt>
+          <dd>Python, TypeScript, React, Django, PHP, PostgreSQL, WebSocket, REST APIs, Highcharts, Bash, PowerShell, Linux, Windows services (NSSM), Power BI</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Research</dt>
+          <dd>MATLAB, Simulink, Simscape Electrical</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Data and machine learning</dt>
+          <dd>Pandas, NumPy, scikit-learn, TensorFlow, PyTorch, LightGBM, XGBoost, Prophet, OR-Tools, MLflow, Streamlit, DuckDB, FastAPI, R</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Other languages</dt>
+          <dd>C++, C, Java, C#, JavaScript, SQL, Solidity, PIC16 assembly</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Other frameworks</dt>
+          <dd>Flask, Node.js, Express.js, NestJS, Next.js, Spring Boot, Vue.js, Angular, React Native, D3.js, Chart.js, Bootstrap, Tailwind CSS, Material-UI</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Other databases</dt>
+          <dd>MySQL, SQLite, Oracle DB, MongoDB, SharePoint</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Embedded and hardware</dt>
+          <dd>ESP32, Arduino, PIC16 with MPLAB X, Proteus, Altium Designer, Circuit Maker, oscilloscope</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Everyday tools</dt>
+          <dd>Git, GitHub, GitLab, Docker, VS Code, IntelliJ IDEA, PyCharm, Postman</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section grid" id="qualifications" aria-labelledby="quals-title">
+      <h2 class="section__title" id="quals-title">Qualifications</h2>
+      <dl class="deflist">
+        <div class="deflist__row">
+          <dt>MSc, Computer and Electronic Engineering</dt>
+          <dd>North-West University. 2026–now, research in progress.</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>BSc (Honours), Computer Engineering</dt>
+          <dd>University of KwaZulu-Natal, 2019 to June 2024. ECSA-accredited. Focus areas: embedded systems, IoT, software development, digital signal processing, control systems, data structures and algorithms, and database systems.</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Candidate Engineer, ECSA</dt>
+          <dd>Registered 2025. Engineering competencies logged against ECSA candidate requirements in a professional-development logbook.</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Engineer-in-Training programme</dt>
+          <dd>Transnet SOC Ltd. ECSA-accredited two-year structured training, April 2025 to March 2027.</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>National Senior Certificate</dt>
+          <dd>Nombuso High School, 2018. Bachelor’s pass.</dd>
+        </div>
+        <div class="deflist__row">
+          <dt>Languages</dt>
+          <dd>English (professional), Zulu (native), Xhosa (conversational).</dd>
+        </div>
+      </dl>
+    </section>
+
+  </main>
+
+  <footer class="contact grid" id="contact" aria-labelledby="contact-title">
+    <h2 class="section__title" id="contact-title">Contact</h2>
+    <p class="contact__lead">I’m open to engineering roles, contract work and collaboration in rail systems, monitoring software and automation. I reply within two working days.</p>
+
+    <p class="contact__colophon">Set in Besley and IBM Plex Mono.<br>© 2026 Lwazi Knowledge Gumede.</p>
+
+    <!-- Title block. Bump the Rev letter and date whenever the content changes. -->
+    <address class="titleblock">
+      <div class="tb tb--name">
+        <span class="tb__label">Name</span>
+        <span class="tb__value">Lwazi Knowledge Gumede</span>
+      </div>
+      <div class="tb tb--rev">
+        <span class="tb__label"><abbr title="Revision">Rev</abbr></span>
+        <span class="tb__value">A</span>
+        <span class="tb__note"><time datetime="2026-10-07">7 Oct 2026</time></span>
+      </div>
+      <div class="tb tb--role">
+        <span class="tb__label">Role</span>
+        <span class="tb__value">Systems engineer, Engineer-in-Training<br>Transnet Rail Infrastructure Manager</span>
+      </div>
+      <div class="tb tb--reg">
+        <span class="tb__label">Registration</span>
+        <span class="tb__value">ECSA Candidate Engineer</span>
+      </div>
+      <div class="tb tb--email">
+        <span class="tb__label">Email</span>
+        <a class="tb__value" href="mailto:lwazig28@gmail.com">lwazig28@gmail.com</a>
+      </div>
+      <div class="tb tb--phone">
+        <span class="tb__label">Phone</span>
+        <span class="tb__value"><a href="tel:+27769352103">+27 76 935 2103</a><br><a href="tel:+27657111226">+27 65 711 1226</a></span>
+      </div>
+      <div class="tb tb--based">
+        <span class="tb__label">Based</span>
+        <span class="tb__value">Johannesburg. Home is UMlazi, Durban. Willing to relocate.</span>
+      </div>
+      <div class="tb tb--code">
+        <span class="tb__label">Code</span>
+        <a class="tb__value" href="https://github.com/LwaziProjects">github.com/LwaziProjects</a>
+      </div>
+      <div class="tb tb--cv">
+        <span class="tb__label">CV</span>
+        <a class="tb__value" href="Lwazi_Knowledge_Gumede_CV.pdf" download>Download CV (PDF) <span aria-hidden="true">↓</span></a>
+      </div>
+    </address>
+  </footer>
+
+</div>
+</body>
+</html>
