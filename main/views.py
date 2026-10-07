@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponse
+import logging
+import smtplib
 from .forms import ContactForm
 from datetime import datetime
 import os
@@ -20,6 +22,8 @@ from reportlab.platypus import (
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_JUSTIFY
 from io import BytesIO
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -253,15 +257,12 @@ Submitted on: {contact_message.created_at.strftime('%B %d, %Y at %I:%M %p')}
                     fail_silently=False,
                 )
                 
-                messages.success(
+                messages.success(request, "Thank you! Your message has been sent.")
+            except (OSError, smtplib.SMTPException):
+                logger.exception("Contact form email delivery failed")
+                messages.warning(
                     request,
-                    "Thank you for your message! We've received your submission and sent you a confirmation email.",
-                )
-            except Exception as e:
-                print(f"Email sending failed: {str(e)}")
-                messages.success(
-                    request,
-                    "Thank you for your message! Your submission has been saved (email notification failed).",
+                    "Your message was saved, but email delivery failed. Please also contact me directly by email.",
                 )
 
             return redirect("contact")
@@ -353,16 +354,22 @@ def download_resume(request):
         )
     )
 
-    # Contact Information with clickable website link
+    # Contact Information with clickable portfolio and LinkedIn links
     website_link = Paragraph(
-        '<a href="https://stephusband.pythonanywhere.com" color="blue"><u>Portfolio Website</u></a>',
+        '<a href="https://lwaziprojects.github.io/Portfolio/" color="blue"><u>Portfolio Website</u></a>',
         body_style
+    )
+    linkedin_link = Paragraph(
+        '<a href="https://www.linkedin.com/in/lwazi-gumede-425307164/" color="blue">'
+        '<u>linkedin.com/in/lwazi-gumede-425307164</u></a>',
+        body_style,
     )
     
     contact_info = [
         ["Email:", "lwazig28@gmail.com", "Phone:", "+27 76 935 2103"],
         ["Location:", "Johannesburg, South Africa", "Phone:", "+27 65 711 1226"],
         ["Website:", website_link, "", ""],
+        ["LinkedIn:", linkedin_link, "", ""],
     ]
     contact_table = Table(
         contact_info, colWidths=[1 * inch, 2.2 * inch, 1 * inch, 1.5 * inch]
@@ -374,6 +381,8 @@ def download_resume(request):
                 ("TEXTCOLOR", (0, 0), (0, -1), colors.grey),
                 ("TEXTCOLOR", (2, 0), (2, -1), colors.grey),
                 ("ALIGN", (0, 0), (-1, -1), "LEFT"),
+                ("SPAN", (1, 2), (3, 2)),
+                ("SPAN", (1, 3), (3, 3)),
             ]
         )
     )
@@ -623,8 +632,17 @@ def download_resume(request):
         reference_style,
     )
 
+    ref5 = Paragraph(
+        """
+    <b>Professional Reference - Transnet Engineering</b><br/>
+    <b>Justine Muthen</b> - Vacation Work<br/>
+    Email: Justine.Muthen@transnet.net
+    """,
+        reference_style,
+    )
+
     # Create table with 2 columns for references with gap between columns
-    references_data = [[ref1, ref3], [ref2, ref4]]
+    references_data = [[ref1, ref3], [ref2, ref4], [ref5, ""]]
 
     references_table = Table(references_data, colWidths=[3.2 * inch, 3.2 * inch])
     references_table.setStyle(
@@ -658,6 +676,7 @@ def download_resume(request):
                     12,
                 ),  # Add space between ref3 and ref4
                 ("BOTTOMPADDING", (0, 1), (1, 1), 0),  # No space after last row
+                ("TOPPADDING", (0, 2), (-1, 2), 12),
             ]
         )
     )
