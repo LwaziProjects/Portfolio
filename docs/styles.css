@@ -232,6 +232,8 @@ abbr[title] { text-decoration: none; }
 .section__lead + .group { margin-top: 2rem; }
 
 .group__rail {
+  position: sticky;
+  top: 6rem;
   grid-column: 1 / span 3;
   align-self: start;
 }
@@ -531,6 +533,7 @@ abbr[title] { text-decoration: none; }
   .section__lead { margin-bottom: 0.5rem; }
 
   .group__rail {
+    position: static;
     display: flex;
     gap: 1rem;
     margin-bottom: 0.6rem;
