@@ -210,6 +210,13 @@ abbr[title] { text-decoration: none; }
   grid-column: 1 / span 3;
   font-size: var(--fs-h2);
 }
+.section__title--sticky {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+  z-index: 1;
+  background: var(--paper);
+}
 .section__lead {
   grid-column: 4 / -1;
   align-self: end;
@@ -233,7 +240,7 @@ abbr[title] { text-decoration: none; }
 
 .group__rail {
   position: sticky;
-  top: 6rem;
+  top: 9rem;
   grid-column: 1 / span 3;
   align-self: start;
 }
@@ -530,6 +537,7 @@ abbr[title] { text-decoration: none; }
   .hero__role { margin-top: 2.25rem; }
 
   .section__title { margin-bottom: 0.75rem; }
+  .section__title--sticky { top: 8rem; }
   .section__lead { margin-bottom: 0.5rem; }
 
   .group__rail {
